@@ -15,10 +15,14 @@ main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65r
 .map-preview{min-height:240px;border-radius:17px;padding:32px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:radial-gradient(circle at 25% 38%,#d8eff8 0 6%,transparent 7%),radial-gradient(circle at 70% 65%,#bce0ed 0 9%,transparent 10%),linear-gradient(140deg,#104c76,#0a82a3);color:#fff;position:relative;overflow:hidden}.map-preview::after{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 45% 50%,transparent 0 27px,#ffffff16 28px 29px);pointer-events:none}.map-preview strong{font-size:1.4rem;position:relative;z-index:1}.map-preview span{position:relative;z-index:1;color:#deeff7}.map-preview .symbol{position:relative;z-index:1;font-size:2.6rem}
 .faq details{background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px 19px;margin:11px 0}.faq summary{cursor:pointer;font-weight:750;color:var(--navy)}.faq details p{margin:11px 0 4px;color:#435669}.sources{padding-left:22px}.sources li{margin-bottom:12px}.sources a{overflow-wrap:anywhere}.muted{color:var(--muted);font-size:.9rem}.footer{background:var(--deep);color:#d9e7f0;padding:36px 0;margin-top:45px}.footer a{color:#b8e4fc}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer p{margin:5px 0;font-size:.9rem}
 @media(max-width:780px){.cards{grid-template-columns:1fr}.feature{grid-template-columns:1fr}.hero{padding:70px 0 100px}.nav{align-items:flex-start}.navlinks{gap:6px 14px}.card{padding:22px}.section{padding:26px 0}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
+/* Cyprus remembrance and privacy */
+.cyprus-remembrance{display:inline-flex;align-items:center;gap:9px;padding:8px 12px;border:1px solid #d3dfe7;border-radius:10px;background:#fff9e8;color:#24445a;text-decoration:none;font-size:.88rem;font-weight:680;line-height:1.4;box-shadow:0 2px 7px #041a2912}.cyprus-remembrance:hover{background:#fff1ce}.cyprus-remembrance img{width:32px;height:23px;object-fit:contain;border:1px solid #d4d4d4;background:white;border-radius:3px}.cyprus-strip{background:#e6f2f8;border-bottom:1px solid #d0e4ee}.cyprus-strip .wrap{display:flex;justify-content:flex-end;padding-block:9px}.footer button{border:0;background:transparent;color:#b8e4fc;text-decoration:underline;cursor:pointer;padding:0;font:inherit;font-size:.9rem}.privacy-overlay[hidden]{display:none}.privacy-overlay{position:fixed;inset:0;z-index:1000;background:#081d31b8;display:flex;align-items:center;justify-content:center;padding:20px}.privacy-modal{position:relative;width:min(570px,100%);max-height:85vh;overflow:auto;background:white;border-radius:16px;padding:30px;box-shadow:0 20px 80px #0005}.privacy-modal h2{margin:0 0 14px;font-size:1.55rem;color:#082b4d}.privacy-modal p,.privacy-modal li{font-size:.96rem}.privacy-close{position:absolute;right:14px;top:10px;border:0;background:transparent;font-size:2rem;line-height:1;cursor:pointer;color:#33536a}.privacy-modal a{overflow-wrap:anywhere}@media(max-width:560px){.cyprus-strip .wrap{justify-content:center}.cyprus-remembrance{font-size:.81rem}.privacy-modal{padding:24px 18px}}
 </style>
 </head>
 <body>
 <header class="topbar"><nav class="wrap nav" aria-label="Κεντρική πλοήγηση"><a class="brand" href="#top">12milia<span>.top</span></a><div class="navlinks"><a href="#overview">Η αιγιαλίτιδα ζώνη</a><a href="#map">Χάρτες</a><a href="#faq">Ερωτήσεις</a><a href="#sources">Πηγές</a></div></nav></header>
+<div class="cyprus-strip"><div class="wrap"><a id="cyprus-remembrance" class="cyprus-remembrance" href="https://www.gov.cy/mfa/documents/toyrkiki-stratiotiki-eisvoli-kai-katochi/" target="_blank" rel="noopener noreferrer" title="Υπουργείο Εξωτερικών Κυπριακής Δημοκρατίας — Τουρκική στρατιωτική εισβολή και κατοχή"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Cyprus.svg" alt="Σημαία Κυπριακής Δημοκρατίας" width="32" height="23"><span id="cyprus-years">Κύπρος — Δεν ξεχνώ (1974)</span> <span aria-hidden="true">↗</span></a></div></div>
 <section id="top" class="hero"><div class="wrap"><div class="eyebrow">Διεθνές Δίκαιο της Θάλασσας</div><h1>12 Ναυτικά<br>Μίλια</h1><p>Τι προβλέπει το Διεθνές Δίκαιο; Τι είναι η αιγιαλίτιδα ζώνη; Μια ανεξάρτητη προσπάθεια ενημέρωσης με κατανοητές εξηγήσεις και ελέγξιμες πηγές.</p><div class="actions"><a class="btn primary" href="#overview">Μάθε τα βασικά ↓</a><a class="btn outline" href="#sources">Επίσημες πηγές ↗</a></div><p class="hero-note">Πληροφόρηση με τεκμηρίωση · Διαχωρισμός νομικών κανόνων και πολιτικών θέσεων</p></div></section>
 <main class="wrap">
 <section class="section" id="overview"><h2>Τι είναι η αιγιαλίτιδα ζώνη;</h2><p class="intro">Η αιγιαλίτιδα ζώνη —γνωστή και ως χωρικά ύδατα— είναι θαλάσσια περιοχή στην οποία το παράκτιο κράτος ασκεί κυριαρχία σύμφωνα με το Διεθνές Δίκαιο, με συγκεκριμένους κανόνες και περιορισμούς.</p><div class="cards"><article class="card"><div class="symbol">⚖️</div><h3>Το δικαίωμα έως 12 ν.μ.</h3><p>Το άρθρο 3 της UNCLOS προβλέπει ότι κάθε κράτος μπορεί να καθορίσει το εύρος της αιγιαλίτιδας ζώνης του έως 12 ναυτικά μίλια από τις νόμιμες γραμμές βάσης.</p></article><article class="card"><div class="symbol">🧭</div><h3>Οριοθέτηση</h3><p>Σε περιοχές με απέναντι ή παρακείμενες ακτές άλλων κρατών, οι κανόνες οριοθέτησης απαιτούν ειδική προσοχή. Δείτε ιδίως το άρθρο 15.</p></article><article class="card"><div class="symbol">🚢</div><h3>Αβλαβής διέλευση</h3><p>Τα ξένα πλοία διατηρούν, υπό τους όρους της Σύμβασης, δικαίωμα αβλαβούς διέλευσης από την αιγιαλίτιδα ζώνη.</p></article></div></section>
@@ -27,6 +31,46 @@ main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65r
 <section class="section faq" id="faq"><h2>Συχνές ερωτήσεις</h2><details><summary>Τα 12 ναυτικά μίλια ισχύουν αυτομάτως;</summary><p>Όχι. Η UNCLOS αναγνωρίζει το δικαίωμα καθορισμού εύρους μέχρι τα 12 ν.μ., αλλά η άσκησή του και τυχόν οριοθέτηση έναντι γειτονικών κρατών είναι διαφορετικές διαδικασίες.</p></details><details><summary>Τι διαφορά έχουν τα χωρικά ύδατα από την ΑΟΖ;</summary><p>Στα χωρικά ύδατα το παράκτιο κράτος ασκεί κυριαρχία, υπό τους κανόνες του Διεθνούς Δικαίου. Στην Αποκλειστική Οικονομική Ζώνη ασκεί ειδικά κυριαρχικά δικαιώματα και δικαιοδοσίες, κυρίως για ορισμένες οικονομικές δραστηριότητες· δεν πρόκειται για το ίδιο νομικό καθεστώς.</p></details><details><summary>Μπορούν να περνούν ξένα πλοία;</summary><p>Ναι, η Σύμβαση προβλέπει δικαίωμα αβλαβούς διέλευσης υπό συγκεκριμένες προϋποθέσεις (άρθρα 17 και επόμενα).</p></details><details><summary>Οι μελλοντικοί χάρτες θα είναι επίσημοι;</summary><p>Όχι, εκτός αν παρουσιάζεται ρητά αυτούσιος επίσημος χάρτης συγκεκριμένου φορέα. Οι δικές μας οπτικοποιήσεις θα χαρακτηρίζονται ενημερωτικές και θα συνοδεύονται από πηγές και μεθοδολογία.</p></details></section>
 <section class="section" id="sources"><h2>Πρωτογενείς πηγές</h2><p class="intro">Για κάθε ουσιαστικό νομικό ισχυρισμό προτιμάμε να μπορεί ο αναγνώστης να ελέγχει το αρχικό κείμενο.</p><div class="card"><ol class="sources"><li><a href="https://www.un.org/Depts/los/convention_agreements/texts/unclos/part2.htm" target="_blank" rel="noopener noreferrer">ΟΗΕ — Σύμβαση για το Δίκαιο της Θάλασσας (UNCLOS), Μέρος II</a>: αιγιαλίτιδα ζώνη, όρια, οριοθέτηση, αβλαβής διέλευση.</li><li><a href="https://www.un.org/Depts/los/convention_agreements/texts/unclos/unclos_e.pdf" target="_blank" rel="noopener noreferrer">ΟΗΕ — Πλήρες κείμενο της UNCLOS (PDF)</a>.</li></ol><p class="muted">Ο ιστότοπος βρίσκεται σε αρχικό στάδιο ανάπτυξης. Το περιεχόμενο θα εμπλουτίζεται με περισσότερες επίσημες ελληνικές και διεθνείς πηγές, βίντεο και χάρτες.</p></div></section>
 </main>
-<footer class="footer"><div class="wrap footer-inner"><div><strong>12milia.top</strong><p>Ανεξάρτητη ενημερωτική πρωτοβουλία για το Δίκαιο της Θάλασσας.</p></div><div><p>Με τεκμηρίωση, χωρίς παραπλανητικές απεικονίσεις.</p><p><a href="#top">Επιστροφή στην αρχή ↑</a></p></div></div></footer>
+<footer class="footer"><div class="wrap footer-inner"><div><strong>12milia.top</strong><p>Ανεξάρτητη ενημερωτική πρωτοβουλία για το Δίκαιο της Θάλασσας.</p></div><div><p>Με τεκμηρίωση, χωρίς παραπλανητικές απεικονίσεις.</p><p><button id="privacy-open" type="button" aria-haspopup="dialog">Πληροφορίες απορρήτου</button></p><p><a href="#top">Επιστροφή στην αρχή ↑</a></p></div></div></footer>
+
+<div class="privacy-overlay" id="privacy-overlay" hidden>
+ <div class="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title" tabindex="-1">
+  <button class="privacy-close" id="privacy-close" type="button" aria-label="Κλείσιμο πληροφοριών απορρήτου">×</button>
+  <h2 id="privacy-title">Πληροφορίες απορρήτου</h2>
+  <p>Το <strong>12milia.top</strong> είναι ενημερωτικός ιστότοπος και δεν ζητά προσωπικά στοιχεία από τους επισκέπτες.</p>
+  <p><strong>Στατιστικά επισκεψιμότητας:</strong> Σκοπεύουμε να χρησιμοποιήσουμε το Counter.dev για συγκεντρωτικά στατιστικά χρήσης, όπως αριθμό επισκέψεων, χώρα, τύπο συσκευής, πρόγραμμα περιήγησης και επισκεπτόμενες σελίδες. <strong>Στην παρούσα έκδοση δεν έχει ενεργοποιηθεί ακόμη ο μετρητής.</strong></p>
+  <p>Η φιλοξενία γίνεται μέσω Cloudflare, η οποία ενδέχεται να επεξεργάζεται τεχνικά δεδομένα σύνδεσης για την παροχή και προστασία του ιστότοπου. Η εμφάνιση εξωτερικών πόρων, όπως της σημαίας της Κύπρου από το Wikimedia Commons, συνεπάγεται επικοινωνία του προγράμματος περιήγησης με αντίστοιχες υπηρεσίες.</p>
+  <p>Όταν ενσωματώσουμε βίντεο ή άλλα τρίτα εργαλεία, θα ενημερώσουμε αναλόγως αυτό το κείμενο.</p>
+ </div>
+</div>
+<script>
+(function(){
+ const now=new Date();
+ let years=now.getFullYear()-1974;
+ if(now.getMonth()<6 || (now.getMonth()===6 && now.getDate()<20)) years--;
+ const isGreek=(navigator.language||'el').toLowerCase().startsWith('el');
+ const el=document.getElementById('cyprus-remembrance');
+ const yearsEl=document.getElementById('cyprus-years');
+ if(!isGreek){
+   el.href='https://www.gov.cy/mfa/en/documents/turkish-military-invasion-and-occupation/';
+   yearsEl.textContent=years+' years since 20 July 1974 — Cyprus: We remember';
+ } else {
+   yearsEl.textContent=years+' χρόνια από την 20ή Ιουλίου 1974 — Κύπρος: Δεν ξεχνώ';
+ }
+ const overlay=document.getElementById('privacy-overlay');
+ const opener=document.getElementById('privacy-open');
+ const closer=document.getElementById('privacy-close');
+ const dialog=overlay.querySelector('.privacy-modal');
+ let lastFocus=null;
+ function close(){overlay.hidden=true;document.body.style.overflow='';(lastFocus||opener).focus();}
+ opener.addEventListener('click',()=>{lastFocus=document.activeElement;overlay.hidden=false;document.body.style.overflow='hidden';dialog.focus();});
+ closer.addEventListener('click',close);
+ overlay.addEventListener('click',e=>{if(e.target===overlay)close();});
+ document.addEventListener('keydown',e=>{if(overlay.hidden)return;if(e.key==='Escape')close();if(e.key==='Tab'){const focusables=[closer,...dialog.querySelectorAll('a[href],button:not([disabled])')].filter((v,i,a)=>a.indexOf(v)===i);const first=focusables[0],last=focusables[focusables.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+})();
+</script>
+<!-- Counter.dev: Όταν δημιουργηθεί το site 12milia.top στον λογαριασμό σου,
+     βάλε εδώ το ΜΟΝΑΔΙΚΟ tracking snippet που δίνει το Counter.dev.
+     Μην αντιγράψεις το data-id από το amomfaretos.top. Ενημέρωσε τότε και το απόρρητο. -->
 </body>
 </html>
