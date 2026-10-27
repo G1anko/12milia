@@ -1,99 +1,32 @@
-
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Ενημέρωση και τεκμηρίωση για τα 12 ναυτικά μίλια και το Διεθνές Δίκαιο της Θάλασσας.">
-  <title>12 Ναυτικά Μίλια | 12milia.top</title>
-  <style>
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f2f6fa;
-      color: #18344e;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(135deg, #073b68, #087ca3);
-      color: white;
-      text-align: center;
-      padding: 90px 20px;
-    }
-    header h1 {
-      font-size: clamp(2.4rem, 7vw, 4.5rem);
-      margin: 0;
-    }
-    header p { font-size: 1.2rem; }
-    main { max-width: 1000px; margin: auto; padding: 36px 20px; }
-    section {
-      background: white;
-      border-radius: 12px;
-      padding: 28px;
-      margin-bottom: 20px;
-      box-shadow: 0 3px 12px #0000000c;
-    }
-    h2 { color: #075b8e; }
-    a { color: #08699c; }
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #53677b;
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#082b4d">
+<meta name="description" content="12 Ναυτικά Μίλια: κατανοητή ενημέρωση και πρωτογενείς πηγές για την αιγιαλίτιδα ζώνη και το Διεθνές Δίκαιο της Θάλασσας.">
+<title>12 Ναυτικά Μίλια | Δίκαιο της Θάλασσας | 12milia.top</title>
+<style>
+:root{color-scheme:light;--navy:#082b4d;--deep:#061b30;--blue:#116aa1;--sky:#eaf5fb;--paper:#f5f8fb;--ink:#173047;--muted:#5e7182;--border:#dce7ef;--white:#fff;--gold:#e8b569}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.7 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink)}a{color:#08618f}a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:4px} .wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+.topbar{background:var(--deep);color:white}.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:72px;flex-wrap:wrap;padding-block:12px}.brand{text-decoration:none;color:#fff;font-weight:850;font-size:1.34rem;letter-spacing:.015em}.brand span{color:#9dd5ed}.navlinks{display:flex;flex-wrap:wrap;gap:8px 22px}.navlinks a{font-size:.92rem;color:#ecf5fb;text-decoration:none}.navlinks a:hover{text-decoration:underline}
+.hero{position:relative;overflow:hidden;color:white;background:linear-gradient(140deg,#071d37 0%,#084876 58%,#138ab0 100%);padding:98px 0 120px}.hero:after{content:"";position:absolute;inset:auto -10% -105px -10%;height:175px;border-radius:50% 50% 0 0;background:var(--paper);transform:rotate(-2deg)}.eyebrow{color:#a5dceb;text-transform:uppercase;letter-spacing:.18em;font-weight:750;font-size:.8rem}.hero h1{font-size:clamp(3rem,8vw,6.3rem);line-height:1.03;margin:16px 0 23px;letter-spacing:-.055em;max-width:820px}.hero p{max-width:660px;color:#e2eff6;font-size:clamp(1.06rem,2vw,1.3rem);line-height:1.6}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:9px;padding:12px 19px;text-decoration:none;font-weight:750;font-size:.95rem;transition:transform .15s}.btn:hover{transform:translateY(-2px)}.btn.primary{background:#fff;color:#073c5d}.btn.outline{border:1px solid #a8cddf;color:#fff}.hero-note{font-size:.84rem!important;opacity:.86;margin-top:22px}
+main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65rem,3vw,2.35rem);line-height:1.18;letter-spacing:-.025em;margin:0 0 12px;color:var(--navy)}.intro{max-width:760px;color:var(--muted);margin:0 0 24px}.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:26px;box-shadow:0 8px 28px #092b4710}.card h3{margin:10px 0 9px;color:var(--navy);font-size:1.19rem}.card p{margin:0;color:#3c5164;font-size:.96rem}.symbol{font-size:1.65rem}.feature{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:center;padding-top:35px}.feature .card{height:100%}.big-number{font-size:clamp(4.5rem,11vw,8rem);font-weight:850;letter-spacing:-.09em;line-height:1;color:#095f8b}.big-number small{font-size:1rem;letter-spacing:normal;font-weight:650;color:var(--muted)}.notice{border-left:4px solid #2292be;background:#e9f4fb;padding:17px 20px;border-radius:0 12px 12px 0;color:#294459;font-size:.94rem}
+.map-preview{min-height:240px;border-radius:17px;padding:32px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:radial-gradient(circle at 25% 38%,#d8eff8 0 6%,transparent 7%),radial-gradient(circle at 70% 65%,#bce0ed 0 9%,transparent 10%),linear-gradient(140deg,#104c76,#0a82a3);color:#fff;position:relative;overflow:hidden}.map-preview::after{content:"";position:absolute;inset:0;background:repeating-radial-gradient(circle at 45% 50%,transparent 0 27px,#ffffff16 28px 29px);pointer-events:none}.map-preview strong{font-size:1.4rem;position:relative;z-index:1}.map-preview span{position:relative;z-index:1;color:#deeff7}.map-preview .symbol{position:relative;z-index:1;font-size:2.6rem}
+.faq details{background:#fff;border:1px solid var(--border);border-radius:12px;padding:14px 19px;margin:11px 0}.faq summary{cursor:pointer;font-weight:750;color:var(--navy)}.faq details p{margin:11px 0 4px;color:#435669}.sources{padding-left:22px}.sources li{margin-bottom:12px}.sources a{overflow-wrap:anywhere}.muted{color:var(--muted);font-size:.9rem}.footer{background:var(--deep);color:#d9e7f0;padding:36px 0;margin-top:45px}.footer a{color:#b8e4fc}.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer p{margin:5px 0;font-size:.9rem}
+@media(max-width:780px){.cards{grid-template-columns:1fr}.feature{grid-template-columns:1fr}.hero{padding:70px 0 100px}.nav{align-items:flex-start}.navlinks{gap:6px 14px}.card{padding:22px}.section{padding:26px 0}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+</style>
 </head>
 <body>
-  <header>
-    <h1>12 Ναυτικά Μίλια</h1>
-    <p>Το Διεθνές Δίκαιο της Θάλασσας, οι χάρτες και η τεκμηρίωση</p>
-  </header>
-
-  <main>
-    <section>
-      <h2>Καλώς ήρθατε στο 12milia.top</h2>
-      <p>
-        Μια ανεξάρτητη ενημερωτική ιστοσελίδα για την
-        αιγιαλίτιδα ζώνη, το δικαίωμα επέκτασης έως
-        τα 12 ναυτικά μίλια και τις σχετικές εξελίξεις.
-      </p>
-    </section>
-
-    <section>
-      <h2>⚖️ Το Διεθνές Δίκαιο</h2>
-      <p>
-        Το άρθρο 3 της Σύμβασης των Ηνωμένων Εθνών
-        για το Δίκαιο της Θάλασσας αναγνωρίζει σε κάθε
-        κράτος το δικαίωμα καθορισμού αιγιαλίτιδας
-        ζώνης έως 12 ναυτικά μίλια.
-      </p>
-      <a href="https://www.un.org/Depts/los/convention_agreements/texts/unclos/part2.htm"
-         target="_blank" rel="noopener noreferrer">
-        Διαβάστε τη Σύμβαση του ΟΗΕ
-      </a>
-    </section>
-
-    <section>
-      <h2>🗺️ Διαδραστικοί χάρτες</h2>
-      <p>
-        Σύντομα θα προστεθούν χάρτες με την υφιστάμενη
-        αιγιαλίτιδα ζώνη και ενδεικτικά σενάρια
-        επέκτασης στα 12 ναυτικά μίλια.
-      </p>
-    </section>
-
-    <section>
-      <h2>🎬 Βίντεο και ιστορικό</h2>
-      <p>
-        Επιλεγμένο οπτικοακουστικό υλικό,
-        ιστορικές αναφορές και επίσημες πηγές.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    12milia.top — Ενημέρωση με στοιχεία και τεκμηρίωση
-  </footer>
+<header class="topbar"><nav class="wrap nav" aria-label="Κεντρική πλοήγηση"><a class="brand" href="#top">12milia<span>.top</span></a><div class="navlinks"><a href="#overview">Η αιγιαλίτιδα ζώνη</a><a href="#map">Χάρτες</a><a href="#faq">Ερωτήσεις</a><a href="#sources">Πηγές</a></div></nav></header>
+<section id="top" class="hero"><div class="wrap"><div class="eyebrow">Διεθνές Δίκαιο της Θάλασσας</div><h1>12 Ναυτικά<br>Μίλια</h1><p>Τι προβλέπει το Διεθνές Δίκαιο; Τι είναι η αιγιαλίτιδα ζώνη; Μια ανεξάρτητη προσπάθεια ενημέρωσης με κατανοητές εξηγήσεις και ελέγξιμες πηγές.</p><div class="actions"><a class="btn primary" href="#overview">Μάθε τα βασικά ↓</a><a class="btn outline" href="#sources">Επίσημες πηγές ↗</a></div><p class="hero-note">Πληροφόρηση με τεκμηρίωση · Διαχωρισμός νομικών κανόνων και πολιτικών θέσεων</p></div></section>
+<main class="wrap">
+<section class="section" id="overview"><h2>Τι είναι η αιγιαλίτιδα ζώνη;</h2><p class="intro">Η αιγιαλίτιδα ζώνη —γνωστή και ως χωρικά ύδατα— είναι θαλάσσια περιοχή στην οποία το παράκτιο κράτος ασκεί κυριαρχία σύμφωνα με το Διεθνές Δίκαιο, με συγκεκριμένους κανόνες και περιορισμούς.</p><div class="cards"><article class="card"><div class="symbol">⚖️</div><h3>Το δικαίωμα έως 12 ν.μ.</h3><p>Το άρθρο 3 της UNCLOS προβλέπει ότι κάθε κράτος μπορεί να καθορίσει το εύρος της αιγιαλίτιδας ζώνης του έως 12 ναυτικά μίλια από τις νόμιμες γραμμές βάσης.</p></article><article class="card"><div class="symbol">🧭</div><h3>Οριοθέτηση</h3><p>Σε περιοχές με απέναντι ή παρακείμενες ακτές άλλων κρατών, οι κανόνες οριοθέτησης απαιτούν ειδική προσοχή. Δείτε ιδίως το άρθρο 15.</p></article><article class="card"><div class="symbol">🚢</div><h3>Αβλαβής διέλευση</h3><p>Τα ξένα πλοία διατηρούν, υπό τους όρους της Σύμβασης, δικαίωμα αβλαβούς διέλευσης από την αιγιαλίτιδα ζώνη.</p></article></div></section>
+<section class="section feature" aria-label="Απόσταση και όρια"><div class="card"><div class="big-number">12 <small>ν.μ.</small></div><h2>Ένα ανώτατο όριο, όχι ένας αυτόματος χάρτης</h2><p>Τα 12 ναυτικά μίλια ισοδυναμούν με 22,224 χιλιόμετρα. Η νόμιμη απεικόνιση μιας θαλάσσιας ζώνης δεν προκύπτει απλώς σχεδιάζοντας έναν κύκλο γύρω από κάθε νησί.</p></div><div class="notice"><strong>Σημαντική διευκρίνιση</strong><p>Το δικαίωμα καθορισμού του εύρους, η άσκησή του και η οριοθέτηση μεταξύ γειτονικών κρατών είναι διαφορετικά ζητήματα. Οι πληροφορίες του ιστοτόπου δεν αποτελούν επίσημη κρατική οριοθέτηση ή νομική γνωμοδότηση.</p></div></section>
+<section class="section" id="map"><h2>Διαδραστικοί χάρτες</h2><p class="intro">Ετοιμάζουμε οπτική σύγκριση 6 και 12 ν.μ. με αξιόπιστες γεωγραφικές πηγές, τεκμηρίωση της μεθόδου και σαφή σήμανση κάθε υποθετικού σεναρίου.</p><div class="map-preview" role="img" aria-label="Διακοσμητική θαλάσσια απεικόνιση, όχι γεωγραφικός χάρτης"><div class="symbol">🗺️</div><strong>Οι χάρτες έρχονται σύντομα</strong><span>Χωρίς αυθαίρετες γραμμές ή παραπλανητικές οριοθετήσεις</span></div></section>
+<section class="section faq" id="faq"><h2>Συχνές ερωτήσεις</h2><details><summary>Τα 12 ναυτικά μίλια ισχύουν αυτομάτως;</summary><p>Όχι. Η UNCLOS αναγνωρίζει το δικαίωμα καθορισμού εύρους μέχρι τα 12 ν.μ., αλλά η άσκησή του και τυχόν οριοθέτηση έναντι γειτονικών κρατών είναι διαφορετικές διαδικασίες.</p></details><details><summary>Τι διαφορά έχουν τα χωρικά ύδατα από την ΑΟΖ;</summary><p>Στα χωρικά ύδατα το παράκτιο κράτος ασκεί κυριαρχία, υπό τους κανόνες του Διεθνούς Δικαίου. Στην Αποκλειστική Οικονομική Ζώνη ασκεί ειδικά κυριαρχικά δικαιώματα και δικαιοδοσίες, κυρίως για ορισμένες οικονομικές δραστηριότητες· δεν πρόκειται για το ίδιο νομικό καθεστώς.</p></details><details><summary>Μπορούν να περνούν ξένα πλοία;</summary><p>Ναι, η Σύμβαση προβλέπει δικαίωμα αβλαβούς διέλευσης υπό συγκεκριμένες προϋποθέσεις (άρθρα 17 και επόμενα).</p></details><details><summary>Οι μελλοντικοί χάρτες θα είναι επίσημοι;</summary><p>Όχι, εκτός αν παρουσιάζεται ρητά αυτούσιος επίσημος χάρτης συγκεκριμένου φορέα. Οι δικές μας οπτικοποιήσεις θα χαρακτηρίζονται ενημερωτικές και θα συνοδεύονται από πηγές και μεθοδολογία.</p></details></section>
+<section class="section" id="sources"><h2>Πρωτογενείς πηγές</h2><p class="intro">Για κάθε ουσιαστικό νομικό ισχυρισμό προτιμάμε να μπορεί ο αναγνώστης να ελέγχει το αρχικό κείμενο.</p><div class="card"><ol class="sources"><li><a href="https://www.un.org/Depts/los/convention_agreements/texts/unclos/part2.htm" target="_blank" rel="noopener noreferrer">ΟΗΕ — Σύμβαση για το Δίκαιο της Θάλασσας (UNCLOS), Μέρος II</a>: αιγιαλίτιδα ζώνη, όρια, οριοθέτηση, αβλαβής διέλευση.</li><li><a href="https://www.un.org/Depts/los/convention_agreements/texts/unclos/unclos_e.pdf" target="_blank" rel="noopener noreferrer">ΟΗΕ — Πλήρες κείμενο της UNCLOS (PDF)</a>.</li></ol><p class="muted">Ο ιστότοπος βρίσκεται σε αρχικό στάδιο ανάπτυξης. Το περιεχόμενο θα εμπλουτίζεται με περισσότερες επίσημες ελληνικές και διεθνείς πηγές, βίντεο και χάρτες.</p></div></section>
+</main>
+<footer class="footer"><div class="wrap footer-inner"><div><strong>12milia.top</strong><p>Ανεξάρτητη ενημερωτική πρωτοβουλία για το Δίκαιο της Θάλασσας.</p></div><div><p>Με τεκμηρίωση, χωρίς παραπλανητικές απεικονίσεις.</p><p><a href="#top">Επιστροφή στην αρχή ↑</a></p></div></div></footer>
 </body>
 </html>
-
