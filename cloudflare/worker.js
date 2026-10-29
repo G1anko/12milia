@@ -27,9 +27,57 @@ export default {
         return row ? json({enabled:true,voted:true,results:await tally(env.DB)}) : json({enabled:true,voted:false});
       }
       if (request.method==='POST' && u.pathname==='/api/poll/vote') {
+// Περιορισμός υποβολών ανά IP.
+// Δεν αποθηκεύουμε την IP στη βάση D1.
+const ip = request.headers.get('CF-Connecting-IP');
+
+if (!ip || !env.POLL_RATE_LIMITER) {
+  return json({error:'rate_limit_unavailable'},503);
+}
+
+const {success} = await env.POLL_RATE_LIMITER.limit({
+  key: ip
+});
+
+if (!success) {
+  return json({error:'rate_limit_exceeded'},429);
+}
         if (Number(request.headers.get('content-length') || 0)>1024) return json({error:'too_large'},413);
         let body; try {body=await request.json();} catch {return json({error:'invalid_json'},400);}
         if (!validToken(body?.token)||!keys.includes(body?.vote)) return json({error:'invalid_vote'},400);
+        if (!env.TURNSTILE_SECRET_KEY) {
+  return json({error:'turnstile_not_configured'},503);
+}
+
+if (typeof body.turnstileToken !== 'string' ||
+    !body.turnstileToken ||
+    body.turnstileToken.length > 2048) {
+  return json({error:'turnstile_required'},400);
+}
+
+const verification = await fetch(
+  'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+  {
+    method: 'POST',
+    headers: {'content-type':'application/json'},
+    body: JSON.stringify({
+      secret: env.TURNSTILE_SECRET_KEY,
+      response: body.turnstileToken,
+      remoteip: request.headers.get('CF-Connecting-IP') || undefined
+    })
+  }
+);
+
+if (!verification.ok) {
+  return json({error:'turnstile_unavailable'},503);
+}
+
+const result = await verification.json();
+
+if (!result.success ||
+    result.hostname !== '12milia.top') {
+  return json({error:'turnstile_failed'},403);
+}
         const hash=await digest(body.token,env.POLL_SECRET);
         // Atomic unique constraint: an existing browser token cannot change its vote.
         await env.DB.prepare('INSERT OR IGNORE INTO poll_votes(token_hash,choice) VALUES (?,?)').bind(hash,body.vote).run();
