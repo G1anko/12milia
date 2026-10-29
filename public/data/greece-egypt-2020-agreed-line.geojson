@@ -1,0 +1,121 @@
+{
+  "type": "FeatureCollection",
+  "name": "Greece-Egypt 2020 AGREED partial delimitation (E-D-C-B-A)",
+  "metadata": {
+    "source": "https://treaties.un.org/doc/Publication/UNTS/No%20Volume/56237/Part/I-56237-080000028058a22f.pdf",
+    "date_signed": "2020-08-06",
+    "date_effective": "2020-09-02",
+    "datum": "WGS84",
+    "note": "Only the agreed segment between E and A; not a complete EEZ polygon",
+    "license_notice": "Recomputed decimal coordinates from the official treaty Annex 1"
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Agreed Greece-Egypt EEZ partial delimitation A-E",
+        "part": "binding partial line"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            26.0,
+            33.4155944444
+          ],
+          [
+            26.4598722222,
+            33.5072888889
+          ],
+          [
+            26.8261861111,
+            33.590025
+          ],
+          [
+            27.5117972222,
+            33.6990027778
+          ],
+          [
+            27.9838888889,
+            33.8847222222
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "E",
+        "agreement": "Greece-Egypt EEZ partial delimitation 2020",
+        "source": "UNTS 56237 Annex I"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.0,
+          33.4155944444
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "D",
+        "agreement": "Greece-Egypt EEZ partial delimitation 2020",
+        "source": "UNTS 56237 Annex I"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.4598722222,
+          33.5072888889
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "C",
+        "agreement": "Greece-Egypt EEZ partial delimitation 2020",
+        "source": "UNTS 56237 Annex I"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.8261861111,
+          33.590025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "B",
+        "agreement": "Greece-Egypt EEZ partial delimitation 2020",
+        "source": "UNTS 56237 Annex I"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5117972222,
+          33.6990027778
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "A",
+        "agreement": "Greece-Egypt EEZ partial delimitation 2020",
+        "source": "UNTS 56237 Annex I"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.9838888889,
+          33.8847222222
+        ]
+      }
+    }
+  ]
+}

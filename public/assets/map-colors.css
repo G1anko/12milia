@@ -1,0 +1,64 @@
+/*
+ * 12milia.top — v46 — ΧΡΩΜΑΤΑ ΧΑΡΤΗ
+ * ΑΛΛΑΖΕΙΣ ΜΟΝΟ ΕΔΩ τα χρώματα για 12 ν.μ., Ελλάδα, Κύπρο, Αίγυπτο.
+ * Τα πεδία --...-fill αλλάζουν κουμπί και υπόμνημα.
+ * Τα πεδία --...-filter αλλάζουν την εμφάνιση του αντίστοιχου WMS επιπέδου.
+ * Οι χάρτες WMS του VLIZ είναι ημιδιαφανείς: πάνω στο OpenStreetMap
+ * η τελική απόχρωση διαφέρει από το συμπαγές χρώμα του υπομνήματος.
+ * Η αλλαγή χρώματος ΔΕΝ αλλάζει τη γεωμετρία ή τη νομική κατάσταση των ζωνών.
+ */
+:root {
+  /* 12 ν.μ.: ναυτικό μπλε της ενεργής επιλογής «12 ν.μ.» */
+  --nm12-fill: #073e6c;
+  --nm12-border: #073e6c;
+  --nm12-filter: hue-rotate(22deg) saturate(1.65) brightness(.67);
+
+  /* Ελληνική ΑΟΖ: καθαρό γαλάζιο (το προηγούμενο κυπριακό) */
+  --eez-greece-fill: #79bde1;
+  --eez-greece-border: #347da7;
+  --eez-greece-filter: hue-rotate(30deg);
+
+  /* Κυπριακή ΑΟΖ: απαλό τιρκουάζ (το προηγούμενο ελληνικό) */
+  --eez-cyprus-fill: #7fc6ce;
+  --eez-cyprus-border: #4b9caa;
+  --eez-cyprus-filter: none;
+
+  /* Αιγυπτιακή ΑΟΖ: το υπάρχον χακί, χωρίς αλλαγή */
+  --eez-egypt-fill: #b6b490;
+  --eez-egypt-border: #8f8056;
+  --eez-egypt-filter: hue-rotate(225deg) saturate(1.15);
+}
+
+/* Πραγματική χρωματική απόδοση στα διάφανα πλακίδια του VLIZ. */
+.nm12-tiles {filter: var(--nm12-filter);}
+.greek-eez-tiles {filter: var(--eez-greece-filter);}
+.cyprus-eez-tiles {filter: var(--eez-cyprus-filter);}
+.egypt-eez-tiles {filter: var(--eez-egypt-filter);}
+
+/* Υπομνήματα — αντιστοιχία με την αντίστοιχη παλέτα. */
+.maritime-legend .swatch:not(.amber):not(.eez-swatch):not(.cyprus-swatch):not(.egypt-swatch):not(.treaty-swatch):not(.meridian-swatch):not(.meridian26-swatch):not(.mou2019-swatch) {
+  background: var(--nm12-fill);
+  border-color: var(--nm12-border);
+}
+.swatch.eez-swatch {background: var(--eez-greece-fill);border-color: var(--eez-greece-border);}
+.swatch.cyprus-swatch {background: var(--eez-cyprus-fill);border-color: var(--eez-cyprus-border);}
+.swatch.egypt-swatch {background: var(--eez-egypt-fill);border-color: var(--eez-egypt-border);}
+
+/* Ο ενεργός διακόπτης 12 ν.μ. και το υπόμνημα χρησιμοποιούν ΙΔΙΟ μπλε. */
+.maritime-tools #show12[aria-pressed="true"] {
+  background: var(--nm12-fill);
+  border-color: var(--nm12-border);
+  color: white;
+}
+
+/* Κουμπί «Ελλάδα» — ελληνικό γαλάζιο. */
+.greek-eez-switch {background:#edf8ff!important;border-color:var(--eez-greece-border)!important;color:#184c68!important;}
+.greek-eez-switch[aria-pressed="true"] {background:var(--eez-greece-fill)!important;border-color:var(--eez-greece-border)!important;color:#063954!important;}
+
+/* Κουμπί «Ελλάδα–Κύπρος» — δύο χρώματα που αντιστοιχούν στις δύο ΑΟΖ. */
+.eez-switch {background:linear-gradient(100deg,#edf8ff,#edf9f9)!important;border-color:var(--eez-cyprus-border)!important;color:#174e5b!important;}
+.eez-switch[aria-pressed="true"] {background:linear-gradient(100deg,var(--eez-greece-fill) 0%,var(--eez-cyprus-fill) 100%)!important;border-color:var(--eez-cyprus-border)!important;color:#063954!important;}
+
+/* Κουμπί «Ελλάδα–Αίγυπτος» — το ήδη συμφωνημένο χακί. */
+.egypt-eez-switch {background:#f5f4e8!important;border-color:var(--eez-egypt-border)!important;color:#554d2f!important;}
+.egypt-eez-switch[aria-pressed="true"] {background:var(--eez-egypt-fill)!important;border-color:var(--eez-egypt-border)!important;color:#322e1c!important;}

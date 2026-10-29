@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="480" viewBox="0 0 1120 480" role="img" aria-labelledby="ti desc"><title id="ti">03-aoz-yfalokripida.svg</title><desc id="desc">Τομή από στεριά σε θάλασσα: τα χωρικά ύδατα φθάνουν έως 12 ναυτικά μίλια, η ΑΟΖ εκτείνεται πέραν αυτών μέχρι 200 ναυτικά μίλια από τη γραμμή βάσης, ενώ η υφαλοκρηπίδα αφορά τον βυθό και το υπέδαφος, και ενδέχεται υπό όρους να εκτείνεται πέραν των 200.</desc><defs><style>text{font-family:Arial,"DejaVu Sans",sans-serif;fill:#102f4c}.label{font-size:21px;font-weight:bold}.sub{font-size:16px;fill:#365a76}.tiny{font-size:14px;fill:#31536c}.title{font-size:27px;font-weight:bold}.dash{stroke-dasharray:9 7}</style><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10" fill="none" stroke="#0d547b" stroke-width="1.5"/></marker></defs><rect width="1120" height="480" rx="24" fill="#f7fbfe"/>
+<text x="34" y="47" class="title">Χωρικά ύδατα, ΑΟΖ και υφαλοκρηπίδα: τι περιλαμβάνει καθεμία;</text>
+<rect x="196" y="87" width="855" height="262" fill="#d9f2fb" rx="8"/>
+<rect x="196" y="87" width="210" height="262" fill="#f9d398" opacity="0.8"/>
+<rect x="406" y="87" width="495" height="262" fill="#97d5e4" opacity="0.72"/>
+<path d="M196 87V349" stroke="#b66b18" stroke-width="3" stroke-dasharray="8 8"/>
+<path d="M406 87V349" stroke="#d68824" stroke-width="3" stroke-dasharray="7 8"/>
+<path d="M901 87V349" stroke="#0a648f" stroke-width="3" stroke-dasharray="7 8"/>
+<path d="M35 87L160 87L196 205L241 350H35Z" fill="#ccd5b1" stroke="#809777" stroke-width="2"/>
+<path d="M35 349L241 349Q390 347 502 358Q684 385 790 414Q914 434 1051 423L1051 469H35Z" fill="#acb6cc" stroke="#6d809d" stroke-width="3"/>
+<path d="M406 351Q457 354 502 358Q684 385 790 414Q914 434 1051 423" fill="none" stroke="#685293" stroke-width="12" opacity="0.82"/>
+<text x="48" y="168" class="label">Στεριά</text>
+<text x="248" y="142" class="label">Χωρικά</text><text x="250" y="169" class="label">ύδατα</text>
+<text x="553" y="142" class="label">ΑΟΖ</text><text x="545" y="169" class="sub">υδάτινη στήλη</text>
+<text x="922" y="143" class="sub">Πέραν</text><text x="919" y="167" class="sub">200 ν.μ.</text>
+<text x="193" y="72" class="tiny">0</text><text x="385" y="72" class="tiny">12 ν.μ.</text><text x="880" y="72" class="tiny">200 ν.μ.</text>
+<text x="493" y="452" class="label" style="fill:#48366f">Υφαλοκρηπίδα: βυθός και υπέδαφος</text>
+<text x="45" y="452" class="tiny">Τομή • ενδεικτική</text>
+<text x="895" y="252" class="tiny">Υπό όρους</text><text x="891" y="273" class="tiny">επέκταση και</text><text x="891" y="294" class="tiny">πέραν των 200</text></svg>

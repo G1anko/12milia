@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="el">
+<head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="#082b4d" name="theme-color"/>
+<meta content="Ίμια, Καστελλόριζο και θαλάσσιες ζώνες: επίσημη ελληνική θέση και διεθνές δίκαιο με πρωτογενείς πηγές." name="description"/>
+<title>Ίμια &amp; Καστελλόριζο | 12milia.top</title>
+<style>
+:root{--deep:#061b30;--navy:#082b4d;--ink:#173047;--paper:#f5f8fb;--border:#dce7ef}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.74 system-ui,-apple-system,Segoe UI,Arial,sans-serif}a{color:#08618f}a:focus-visible{outline:3px solid #f2b954;outline-offset:3px}
+.wrap{width:min(1060px,calc(100% - 36px));margin-inline:auto}.topbar{background:var(--deep);color:white}.nav{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:13px;min-height:72px}.brand{font-weight:850;font-size:1.3rem;color:white;text-decoration:none}.brand span{color:#a5d9ed}.navlinks{display:flex;flex-wrap:wrap;gap:9px 20px}.navlinks a{color:#eef8fc;font-size:.91rem;text-decoration:none}.navlinks a:hover{text-decoration:underline}
+.hero{background:linear-gradient(130deg,#061d35,#075f8d 65%,#168da8);color:#fff;padding:70px 0 78px}.hero h1{font-size:clamp(2.2rem,5vw,3.75rem);line-height:1.12;max-width:870px;margin:10px 0 18px}.hero p{color:#dbf0f8;max-width:800px;font-size:1.08rem}.eyebrow{color:#b3e8f5;letter-spacing:.15em;text-transform:uppercase;font-size:.78rem;font-weight:800}.back-link{color:#fff;font-weight:700;display:inline-block;margin-top:12px}
+main{padding-top:32px;padding-bottom:40px}.intro{color:#4b6174;max-width:870px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:19px;margin:23px 0}.card{background:white;border:1px solid var(--border);border-radius:15px;padding:25px;box-shadow:0 7px 22px #092b4710}.card h2{color:var(--navy);font-size:1.55rem;line-height:1.25;margin:0 0 8px}.card p{font-size:.94rem}.card ul{padding-left:21px;font-size:.92rem}.card li{margin:9px 0}.card a{overflow-wrap:anywhere;font-weight:650}.buttonlink{display:inline-block;margin-top:10px;padding:10px 14px;color:#fff;background:#09618f;border-radius:8px;text-decoration:none;font-weight:750}
+.note{border-left:4px solid #1780b2;border-radius:0 12px 12px 0;background:#e9f5fc;padding:19px 23px;margin:28px 0}.note h2{margin:0 0 10px;color:#073f66}.note p{margin:9px 0}.sources{background:white;border-radius:15px;padding:23px;border:1px solid var(--border)}.sources h2{margin-top:0;color:var(--navy)}.sources li{padding-bottom:8px}.footer{margin-top:35px;background:var(--deep);color:#d9e7f0;padding:30px 0}.footer a{color:#b8e4fc}.footer p{margin:5px 0;font-size:.87rem}@media(max-width:740px){.grid{grid-template-columns:1fr}.card{padding:19px}.hero{padding:50px 0 58px}}
+
+
+/* v32: Ομοιόμορφα στοιχεία κεφαλίδας, banner, υποσέλιδου, απορρήτου */
+.wrap{width:min(1120px,calc(100% - 40px));margin-inline:auto}
+.topbar{background:#061b30;color:#fff}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:72px;flex-wrap:wrap;padding-block:12px}
+.brand{text-decoration:none;color:#fff;font-weight:850;font-size:1.34rem;letter-spacing:.015em}
+.brand span{color:#9dd5ed}
+.navlinks{display:flex;flex-wrap:wrap;gap:8px 22px}
+.navlinks a{font-size:.92rem;color:#ecf5fb;text-decoration:none}
+.navlinks a:hover{text-decoration:underline}
+.cyprus-remembrance{display:inline-flex;align-items:center;gap:9px;padding:8px 12px;border:1px solid #d3dfe7;border-radius:10px;background:#fff9e8;color:#24445a;text-decoration:none;font-size:.88rem;font-weight:680;line-height:1.4;box-shadow:0 2px 7px #041a2912}
+.cyprus-remembrance:hover{background:#fff1ce}
+.cyprus-remembrance img{width:32px;height:23px;object-fit:contain;border:1px solid #d4d4d4;background:white;border-radius:3px}
+.cyprus-strip{background:#e6f2f8;border-bottom:1px solid #d0e4ee}
+.cyprus-strip .wrap{display:flex;justify-content:center;padding-block:9px}
+.footer{background:#061b30;color:#d9e7f0;padding:36px 0;margin-top:45px}
+.footer a{color:#b8e4fc}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.footer p{margin:5px 0;font-size:.9rem}
+.footer button{border:0;background:transparent;color:#b8e4fc;text-decoration:underline;cursor:pointer;padding:0;font:inherit;font-size:.9rem}
+.privacy-overlay[hidden]{display:none}
+.privacy-overlay{position:fixed;inset:0;z-index:1000;background:#081d31b8;display:flex;align-items:center;justify-content:center;padding:20px}
+.privacy-modal{position:relative;width:min(570px,100%);max-height:85vh;overflow:auto;background:white;border-radius:16px;padding:30px;box-shadow:0 20px 80px #0005}
+.privacy-modal h2{margin:0 0 14px;font-size:1.55rem;color:#082b4d}
+.privacy-modal p,.privacy-modal li{font-size:.96rem}
+.privacy-close{position:absolute;right:14px;top:10px;border:0;background:transparent;font-size:2rem;line-height:1;cursor:pointer;color:#33536a}
+.privacy-modal a{overflow-wrap:anywhere}
+@media(max-width:560px){.cyprus-strip .wrap{justify-content:center}.cyprus-remembrance{font-size:.81rem;white-space:normal;text-align:center;justify-content:center}.privacy-modal{padding:24px 18px}}
+.anniversary-date{font-weight:750;color:#ffffff}.footer-year{color:#9db6c9}</style>
+<link href="../assets/favicon.svg" rel="icon" type="image/svg+xml"/><style>
+/* v39: Ενιαία δίστηλη διάταξη υποσέλιδου και σημαία επωνυμίας */
+.site-flag{font-size:.91em;white-space:nowrap;vertical-align:baseline}
+.footer-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:34px;row-gap:18px;align-items:start}
+.footer-inner>div{min-width:0}
+@media(max-width:700px){.footer-inner{grid-template-columns:minmax(0,1fr)}}
+.anniversary-date{font-weight:750;color:#ffffff}.footer-year{color:#9db6c9}</style></head><body><header class="topbar"><nav aria-label="Κεντρική πλοήγηση" class="wrap nav"><a class="brand" href="../">12milia<span>.top</span><span aria-hidden="true" class="site-flag"> 🇬🇷</span></a><div class="navlinks"><a href="../#overview">12 ναυτικά μίλια</a><a href="../basikes-ennoies/">Βασικές έννοιες</a><a href="../nisia-kai-aoz/">Ίμια &amp; Καστελλόριζο</a><a href="../#map">Χάρτες</a><a href="../#faq">Ερωτήσεις</a><a href="../#sources">Πηγές</a></div></nav></header><div class="cyprus-strip"><div class="wrap"><a class="cyprus-remembrance" href="https://www.gov.cy/mfa/documents/toyrkiki-stratiotiki-eisvoli-kai-katochi/" id="cyprus-remembrance" rel="noopener noreferrer" target="_blank" title="Υπουργείο Εξωτερικών Κυπριακής Δημοκρατίας — Τουρκική στρατιωτική εισβολή και κατοχή"><img alt="Σημαία Κυπριακής Δημοκρατίας" height="23" src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Cyprus.svg" width="32"/><span id="cyprus-years">Τουρκική στρατιωτική εισβολή και κατοχή</span> <span aria-hidden="true">↗</span></a></div></div>
+<section class="hero" id="top"><div class="wrap"><div class="eyebrow">Νησιά, κυριαρχία και θαλάσσιες ζώνες</div><h1>Ίμια &amp; Καστελλόριζο</h1><p>Οι επίσημες ελληνικές θέσεις, οι διεθνείς συνθήκες και η σημασία των νησιών στο Δίκαιο της Θάλασσας — με παραπομπές που μπορεί να ελέγξει κάθε επισκέπτης.</p><a class="back-link" href="../#map">← Επιστροφή στον χάρτη</a></div></section>
+<main class="wrap">
+<p class="intro">Τα Ίμια αφορούν πρωτίστως ζήτημα κυριαρχίας επί δύο νησίδων. Το Καστελλόριζο αφορά, μεταξύ άλλων, τα θαλάσσια δικαιώματα του ελληνικού νησιωτικού συμπλέγματος. Είναι διαφορετικά νομικά ζητήματα, γι’ αυτό και εξετάζονται χωριστά.</p>
+<div class="grid">
+<article class="card" id="imia"><h2>Ίμια — η επίσημη ελληνική θέση</h2>
+<p>Σύμφωνα με το ελληνικό Υπουργείο Εξωτερικών, τα Ίμια ανήκουν στην ελληνική επικράτεια. Η ελληνική επιχειρηματολογία αναφέρεται στη Συνθήκη της Λωζάννης (1923), στις σχετικές ιταλοτουρκικές συμφωνίες (1932) και στη Συνθήκη Ειρήνης των Παρισίων (1947), με την οποία τα Δωδεκάνησα παραχωρήθηκαν στην Ελλάδα.</p>
+<p>Η Τουρκία αμφισβητεί την ελληνική θέση. Η ύπαρξη διαφορετικών ισχυρισμών δεν καθιστά τις γραμμές μιας ιδιωτικής χαρτογραφικής βάσης απόδειξη κυριαρχίας.</p>
+<p><strong>Στον χάρτη:</strong> η προαιρετική σήμανση των δύο νησίδων προέρχεται από περιγράμματα OpenStreetMap. Δεν αποτελεί οριοθέτηση θαλάσσιων ζωνών.</p>
+<a href="https://www.mfa.gr/exoteriki-politiki/eidika-themata-exoterikis-politikis/zitimata-ellinotourkikon-scheseon/tourkikes-diekdikiseis/" rel="noopener noreferrer" target="_blank">Ελληνικό ΥΠΕΞ — τεκμηρίωση για τα Ίμια ↗</a>
+<p><a class="buttonlink" href="../?focus=imia#map">Εντόπισε τα Ίμια στον χάρτη</a></p>
+</article>
+<article class="card" id="kastellorizo"><h2>Καστελλόριζο — η σημασία των θαλάσσιων ζωνών</h2>
+<p>Το Καστελλόριζο (Μεγίστη) και το νησιωτικό σύμπλεγμα στα νοτιοανατολικά Δωδεκάνησα έχουν ιδιαίτερη σημασία για τη γεωγραφική συνέχεια των δυνητικών ελληνικών θαλάσσιων ζωνών στην Ανατολική Μεσόγειο.</p>
+<p>Το ελληνικό ΥΠΕΞ υποστηρίζει ότι το Καστελλόριζο διαθέτει τα δικαιώματα σε θαλάσσιες ζώνες που προβλέπει το Δίκαιο της Θάλασσας για τα νησιά, και ότι η οριοθέτηση ΑΟΖ/υφαλοκρηπίδας με απέναντι ή παρακείμενες ακτές πρέπει να γίνεται σύμφωνα με το Διεθνές Δίκαιο.</p>
+<p><strong>Ελλάδα–Κύπρος και Καστελλόριζο:</strong> Η θέση του ελληνικού νησιωτικού συμπλέγματος του Καστελλόριζου είναι ιδιαίτερα σημαντική για τη δυνητική γεωγραφική συνέχεια ελληνικών θαλάσσιων ζωνών προς την Κύπρο. Η έκταση της επήρειας των νησιών σε συγκεκριμένη οριοθέτηση καθορίζεται με βάση το Διεθνές Δίκαιο και τις σχετικές περιστάσεις. Οι χαρτογραφικές αναπαραστάσεις επαφής ελληνικής και κυπριακής ΑΟΖ είναι ενδεικτικές: <strong>δεν υφίσταται συμφωνημένη διμερής οριοθέτηση ΑΟΖ Ελλάδας–Κύπρου</strong>.</p>
+<a href="https://www.mfa.gr/synentefxi-ypourgou-exoterikon-giorgou-gerapetriti-stin-efimerida-parapolitika-kai-ti-dimosiografo-katerina-tsamouri-26-04-2025/" rel="noopener noreferrer" target="_blank">ΥΠΕΞ — δικαιώματα ελληνικών νησιών (26.04.2025) ↗</a> · <a href="https://www.mfa.gr/synentefxi-ypourgou-exoterikon-giorgou-gerapetriti-stin-tileoptiki-ekpobi-tou-skai-simera-me-tous-dimosiografous-dimitri-oikonomou-kai-gianni-pittara-athina-09-09-2026/" rel="noopener noreferrer" target="_blank">ΥΠΕΞ — αναφορά στο Καστελλόριζο (09.09.2026) ↗</a>
+<p><a class="buttonlink" href="../?focus=kastellorizo#map">Δες το Καστελλόριζο στον χάρτη</a></p>
+</article></div>
+<section class="note"><h2>Τι επιτρέπει το Διεθνές Δίκαιο;</h2>
+<p><strong>Άρθρο 121 UNCLOS:</strong> τα νησιά έχουν καταρχήν θαλάσσιες ζώνες σύμφωνα με τους όρους της Σύμβασης. Ειδική πρόβλεψη υπάρχει στην παράγραφο 3 για βράχους που δεν μπορούν να συντηρήσουν ανθρώπινη κατοίκηση ή δική τους οικονομική ζωή.</p>
+<p><strong>Άρθρα 74 και 83 UNCLOS:</strong> η οριοθέτηση ΑΟΖ και υφαλοκρηπίδας ανάμεσα σε κράτη με απέναντι ή παρακείμενες ακτές γίνεται με συμφωνία, σύμφωνα με το διεθνές δίκαιο, για την επίτευξη δίκαιης λύσης.</p>
+<p>Το δικαίωμα ενός νησιού να έχει θαλάσσιες ζώνες και το πόση επήρεια θα αποκτήσει σε συγκεκριμένη οριοθέτηση είναι συναφή αλλά όχι ταυτόσημα ερωτήματα.</p></section>
+<section class="sources" id="sources"><h2>Πρωτογενείς πηγές και γεωγραφικά δεδομένα</h2><ol>
+<li><a href="https://www.mfa.gr/exoteriki-politiki/eidika-themata-exoterikis-politikis/zitimata-ellinotourkikon-scheseon/tourkikes-diekdikiseis/" rel="noopener noreferrer" target="_blank">Ελληνικό ΥΠΕΞ — Ίμια και ιστορική/νομική τεκμηρίωση</a>.</li>
+<li><a href="https://www.mfa.gr/synentefxi-ypourgou-exoterikon-giorgou-gerapetriti-stin-efimerida-parapolitika-kai-ti-dimosiografo-katerina-tsamouri-26-04-2025/" rel="noopener noreferrer" target="_blank">Ελληνικό ΥΠΕΞ — θαλάσσια δικαιώματα νησιών, συνέντευξη (26.04.2025)</a>.</li>
+<li><a href="https://www.mfa.gr/synentefxi-ypourgou-exoterikon-giorgou-gerapetriti-stin-tileoptiki-ekpobi-tou-skai-simera-me-tous-dimosiografous-dimitri-oikonomou-kai-gianni-pittara-athina-09-09-2026/" rel="noopener noreferrer" target="_blank">Ελληνικό ΥΠΕΞ — συνέντευξη για την επέκταση των χωρικών υδάτων και το Καστελλόριζο (09.09.2026)</a>.</li>
+
+<li><a href="https://www.un.org/depts/los/convention_agreements/texts/unclos/part8.htm" rel="noopener noreferrer" target="_blank">UNCLOS — άρθρο 121 για το καθεστώς των νησιών</a>.</li>
+<li><a href="https://www.un.org/depts/los/convention_agreements/texts/unclos/part5.htm" rel="noopener noreferrer" target="_blank">UNCLOS — άρθρο 74 για την οριοθέτηση ΑΟΖ</a>.</li>
+<li><a href="https://www.marineregions.org/gazetteer.php?id=5679&amp;p=details" rel="noopener noreferrer" target="_blank">VLIZ — Ελληνική ΑΟΖ (MRGID 5679)</a> και <a href="https://www.marineregions.org/gazetteer.php?id=8376&amp;p=details" rel="noopener noreferrer" target="_blank">Κυπριακή ΑΟΖ (MRGID 8376)</a>, επιστημονικές χαρτογραφικές εκτιμήσεις 2023.</li>
+<li><a href="https://data.gov.cy/el/dataset/apokleistiki-oikonomiki-zoni-ydrografika-dedomena" rel="noopener noreferrer" target="_blank">Κυπριακή Δημοκρατία — κρατικά γεωχωρικά δεδομένα ΑΟΖ</a>.</li>
+</ol></section></main><footer class="footer"><div class="wrap footer-inner"><div><strong>12milia.top 🇬🇷</strong><p>Ανεξάρτητη πρωτοβουλία ενημέρωσης για τα 12 ν.μ. και το Δίκαιο της Θάλασσας.</p><p><a aria-label="Επικοινωνία με email στο info@amomfaretos.top" href="mailto:info@amomfaretos.top">info@amomfaretos.top</a></p><p>Τελευταία ενημέρωση: <time datetime="2026-10-28"><strong class="anniversary-date">28 Οκτωβρίου</strong> <span class="footer-year">2026</span></time></p></div><div><p>Με επίσημες πηγές, διαδραστικούς χάρτες και τεκμηρίωση.</p><p><button aria-haspopup="dialog" id="privacy-open" type="button">Πληροφορίες απορρήτου</button></p><p><a href="#top">Επιστροφή στην αρχή ↑</a></p></div></div></footer><div class="privacy-overlay" hidden id="privacy-overlay"></div>
+<script>
+(function(){
+ const now=new Date();
+ let years=now.getFullYear()-1974;
+ if(now.getMonth()<6 || (now.getMonth()===6 && now.getDate()<20)) years--;
+ const isGreek=(navigator.language||'el').toLowerCase().startsWith('el');
+ const el=document.getElementById('cyprus-remembrance');
+ const yearsEl=document.getElementById('cyprus-years');
+ if(!isGreek){
+   el.href='https://www.gov.cy/mfa/en/documents/turkish-military-invasion-and-occupation/';
+   yearsEl.textContent=years+' years Turkish military invasion and occupation — Cyprus: We do not forget';
+ } else {
+   yearsEl.textContent=years+' χρόνια Τουρκική στρατιωτική εισβολή και κατοχή — Κύπρος: Δεν ξεχνώ';
+ }
+
+})();
+</script><script data-id="47ee4eba-4db4-470b-afd4-a7f19971bc36" data-utcoffset="2" src="https://cdn.counter.dev/script.js"></script><script src="../assets/privacy.js?v=44"></script>
+</body></html>

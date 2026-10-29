@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="480" viewBox="0 0 1120 480" role="img" aria-labelledby="ti desc"><title id="ti">04-nisia.svg</title><desc id="desc">Σχηματικό νησί σε απόσταση από απέναντι ακτή. Περιμετρική ζώνη 6 και 12 ναυτικών μιλίων για εννοιολογική κατανόηση, όχι νόμιμη οριοθέτηση. Η επικαλυπτόμενη περιοχή επισημαίνεται ως περιοχή όπου απαιτείται ιδιαίτερη εφαρμογή των κανόνων οριοθέτησης.</desc><defs><style>text{font-family:Arial,"DejaVu Sans",sans-serif;fill:#102f4c}.label{font-size:21px;font-weight:bold}.sub{font-size:16px;fill:#365a76}.tiny{font-size:14px;fill:#31536c}.title{font-size:27px;font-weight:bold}.dash{stroke-dasharray:9 7}</style><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10" fill="none" stroke="#0d547b" stroke-width="1.5"/></marker></defs><rect width="1120" height="480" rx="24" fill="#f7fbfe"/>
+<text x="35" y="52" class="title">Νησιά και θαλάσσιες ζώνες — σχηματικό παράδειγμα</text>
+<rect x="33" y="86" width="1051" height="335" rx="18" fill="#d3edf8" stroke="#bbd8e7"/>
+<ellipse cx="378" cy="250" rx="263" ry="156" fill="#83d0ec" stroke="#137da9" stroke-width="3"/>
+<ellipse cx="378" cy="250" rx="157" ry="96" fill="#ffe0aa" opacity="0.8" stroke="#d68423" stroke-width="4" stroke-dasharray="8 7"/>
+<path d="M330 236Q345 205 381 211Q421 207 436 248Q438 287 399 291Q360 297 340 272Z" fill="#d3d7b0" stroke="#6b946e" stroke-width="3"/>
+<path d="M905 86V421H1084V86Z" fill="#d3d7b0" stroke="#6b946e" stroke-width="4"/>
+<path d="M805 86L805 421" stroke="#6f4e92" stroke-width="3.3" stroke-dasharray="10 8"/>
+<text x="346" y="260" class="label">Νησί</text>
+<text x="260" y="123" class="label" style="fill:#0e628b">12 ν.μ.</text>
+<text x="280" y="178" class="sub" style="fill:#915b12">6 ν.μ.</text>
+<text x="918" y="219" class="label">Απέναντι</text><text x="919" y="244" class="label">ακτή</text>
+<path d="M650 300L795 300" stroke="#574176" stroke-width="2" marker-end="url(#ar)"/>
+<text x="640" y="324" class="sub">Περιοχή όπου</text><text x="640" y="345" class="sub">εξετάζονται κανόνες</text><text x="640" y="366" class="sub">οριοθέτησης</text>
+<text x="45" y="460" class="tiny">Δεν αποτελεί επίσημη γραμμή βάσης, υφιστάμενο όριο ή εφαρμογή του άρθρου 121 σε συγκεκριμένο νησί.</text></svg>

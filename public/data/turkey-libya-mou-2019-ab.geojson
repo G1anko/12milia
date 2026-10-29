@@ -1,0 +1,28 @@
+{
+  "type": "FeatureCollection",
+  "name": "Turkey-Libya memorandum 2019 Article I, A-B (not an accepted boundary for Greece)",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Turkey-Libya MoU A-B (2019)",
+        "status": "disputed; rejected by Greece/EU; not an agreed delimitation for third states",
+        "source": "https://treaties.un.org/Pages/showDetails.aspx?objid=080000028056605a",
+        "geometry_note": "WGS84 coordinates transcribed from Article 1"
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            26.3199,
+            34.27047777777778
+          ],
+          [
+            26.65175,
+            34.15219444444444
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="480" viewBox="0 0 1120 480" role="img" aria-labelledby="ti desc"><title id="ti">01-chorika-ydata.svg</title><desc id="desc">Σχηματική ακτή αριστερά, κανονική γραμμή βάσης, πορτοκαλί ενδεικτική ζώνη μηδέν έως έξι ναυτικών μιλίων, γαλάζια πρόσθετη ζώνη έξι έως δώδεκα και θάλασσα πέραν του ορίου.</desc><defs><style>text{font-family:Arial,"DejaVu Sans",sans-serif;fill:#102f4c}.label{font-size:21px;font-weight:bold}.sub{font-size:16px;fill:#365a76}.tiny{font-size:14px;fill:#31536c}.title{font-size:27px;font-weight:bold}.dash{stroke-dasharray:9 7}</style><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10" fill="none" stroke="#0d547b" stroke-width="1.5"/></marker></defs><rect width="1120" height="480" rx="24" fill="#f7fbfe"/>
+<text x="38" y="52" class="title">Αιγιαλίτιδα ζώνη — έως 12 ν.μ. από τη γραμμή βάσης</text>
+<rect x="210" y="98" width="862" height="312" fill="#d1eff9" rx="10"/>
+<rect x="210" y="98" width="286" height="312" fill="#f9d491" opacity="0.78"/>
+<rect x="496" y="98" width="285" height="312" fill="#7fcae5" opacity="0.72"/>
+<path d="M40 98H200Q224 125 210 160Q188 193 209 232Q225 262 202 300Q183 340 210 410H40Z" fill="#d5d5b3" stroke="#8b906a" stroke-width="3"/>
+<path d="M200 98Q224 125 210 160Q188 193 209 232Q225 262 202 300Q183 340 210 410" fill="none" stroke="#dc7a25" stroke-width="5" stroke-dasharray="7 6"/>
+<path d="M210 98V410" stroke="#9e6b18" stroke-width="2" stroke-dasharray="7 7"/>
+<path d="M496 98V410" stroke="#cc7e12" stroke-width="4"/>
+<path d="M781 98V410" stroke="#08618f" stroke-width="4"/>
+<text x="64" y="260" class="label">Στεριά</text>
+<text x="244" y="155" class="label">0–6 ν.μ.</text>
+<text x="535" y="155" class="label">6–12 ν.μ.</text>
+<text x="827" y="155" class="label">Θάλασσα</text>
+<text x="837" y="181" class="sub">πέραν των 12</text>
+<path d="M210 286H780" stroke="#0d547b" stroke-width="2.6" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="442" y="270" class="label">12 ν.μ.</text>
+<path d="M210 335H495" stroke="#805208" stroke-width="2" marker-start="url(#ar)" marker-end="url(#ar)"/>
+<text x="326" y="328" class="sub">6 ν.μ.</text>
+<text x="87" y="447" class="tiny">Διακεκομμένη γραμμή: σχηματική γραμμή βάσης</text>
+<text x="745" y="447" class="tiny">Σχήμα εννοιών • όχι σε κλίμακα</text></svg>

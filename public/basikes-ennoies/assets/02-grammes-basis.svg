@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="480" viewBox="0 0 1120 480" role="img" aria-labelledby="ti desc"><title id="ti">02-grammes-basis.svg</title><desc id="desc">Δύο σχηματικά τμήματα έντονα εσοχικής ακτής. Αριστερά κανονική γραμμή βάσης ακολουθεί τη ρηχία, δεξιά ευθείες γραμμές βάσης συνδέουν κατάλληλα σημεία της ακτής μόνο υπό τις προϋποθέσεις του άρθρου 7.</desc><defs><style>text{font-family:Arial,"DejaVu Sans",sans-serif;fill:#102f4c}.label{font-size:21px;font-weight:bold}.sub{font-size:16px;fill:#365a76}.tiny{font-size:14px;fill:#31536c}.title{font-size:27px;font-weight:bold}.dash{stroke-dasharray:9 7}</style><marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10" fill="none" stroke="#0d547b" stroke-width="1.5"/></marker></defs><rect width="1120" height="480" rx="24" fill="#f7fbfe"/>
+<text x="38" y="52" class="title">Από πού ξεκινά η μέτρηση; Οι γραμμές βάσης</text>
+<rect x="32" y="89" width="510" height="344" rx="17" fill="#daf0fa" stroke="#bfd9e9"/>
+<rect x="577" y="89" width="510" height="344" rx="17" fill="#daf0fa" stroke="#bfd9e9"/>
+<text x="56" y="127" class="label">Κανονική γραμμή βάσης</text>
+<text x="602" y="127" class="label">Ευθείες γραμμές βάσης</text>
+<path d="M32 160H235Q300 185 232 222Q176 244 266 282Q326 311 225 342Q170 372 255 405H32Z" fill="#d2dbbb" stroke="#7a9c75" stroke-width="3"/>
+<path d="M235 160Q300 185 232 222Q176 244 266 282Q326 311 225 342Q170 372 255 405" fill="none" stroke="#d56a17" stroke-width="5" stroke-dasharray="7 6"/>
+<path d="M577 160H780Q845 185 777 222Q720 244 811 282Q875 311 770 342Q710 372 800 405H577Z" fill="#d2dbbb" stroke="#7a9c75" stroke-width="3"/>
+<path d="M780 160Q845 185 777 222Q720 244 811 282Q875 311 770 342Q710 372 800 405" fill="none" stroke="#b2b8b4" stroke-width="3" stroke-dasharray="5 6"/>
+<path d="M780 160L811 282L800 405" fill="none" stroke="#d56a17" stroke-width="5" stroke-dasharray="9 7"/>
+<circle cx="780" cy="160" r="7" fill="#c35b0a"/><circle cx="811" cy="282" r="7" fill="#c35b0a"/><circle cx="800" cy="405" r="7" fill="#c35b0a"/>
+<text x="295" y="220" class="sub">Ακολουθεί τη</text><text x="295" y="246" class="sub">γραμμή ρηχίας</text>
+<text x="847" y="219" class="sub">Σύνδεση</text><text x="847" y="243" class="sub">κατάλληλων</text><text x="847" y="267" class="sub">σημείων</text>
+<text x="48" y="461" class="tiny">Κανονική βάση: άρθρο 5 UNCLOS</text><text x="580" y="461" class="tiny">Ευθείες βάσεις: άρθρο 7 UNCLOS, μόνο υπό προϋποθέσεις</text></svg>
