@@ -375,6 +375,8 @@ main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65r
    map.setZoom(map.getZoom()+1,{animate:false});
  }
  showAllGreece();
+ const initialGreeceCenter = map.getCenter();
+ const initialGreeceZoom = map.getZoom();
  // Τα Ίμια εντοπίζονται από τα περιγράμματα των δύο νησίδων του OpenStreetMap.
  // Δεν αποδίδουμε τα περιγράμματα σε εθνικό καθεστώς, ούτε τα ενσωματώνουμε στη γεωμετρία 6/12 ν.μ.
  const imiaOfficial='https://www.mfa.gr/exoteriki-politiki/eidika-themata-exoterikis-politikis/zitimata-ellinotourkikon-scheseon/tourkikes-diekdikiseis/';
@@ -422,7 +424,10 @@ main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65r
  }
  imiaLoad.then(updateImiaAuto);
  map.on('zoomend moveend',updateImiaAuto);
- document.getElementById('focus-greece').addEventListener('click',showAllGreece);
+ document.getElementById('focus-greece').addEventListener('click',()=>{
+  map.stop();
+  map.setView(initialGreeceCenter, initialGreeceZoom, {animate:false});
+ });
  // Θεματικοί σύνδεσμοι από τη σελίδα «Ίμια & Καστελλόριζο» χωρίς επιπλέον κουμπιά στο toolbar.
  const requestedFocus=new URLSearchParams(window.location.search).get('focus');
  if(requestedFocus==='imia')map.setView([37.049,27.147],15);
