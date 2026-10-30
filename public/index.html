@@ -182,19 +182,21 @@ main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65r
   border: 1px solid #dce7ef;
   border-radius: 12px;
 }
-
 .map-documentation summary {
   cursor: pointer;
   font-weight: 750;
   color: #082b4d;
 }
-
 .map-documentation[open] summary {
   margin-bottom: 16px;
 }
-
 .map-documentation .maritime-help {
   max-width: none;
+}
+.maritime-tools .map-source-link {
+  font-size: .86rem;
+  margin-left: 0;
+  white-space: nowrap;
 }
 </style>
 <link href="assets/map-colors.css?v=46" rel="stylesheet"/>
@@ -226,7 +228,6 @@ main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65r
 <button aria-pressed="false" id="view6" title="Εμφάνιση υπολογιστικής θαλάσσιας ζώνης 6 ν.μ. από ακτογραμμές, περιορισμένης στη ζώνη VLIZ" type="button">6 ν.μ.</button>
 <button aria-pressed="true" id="show12" title="Προβολή του χαρτογραφικού επιπέδου των 12 ν.μ." type="button">12 ν.μ.</button>
 <button aria-pressed="false" id="viewcompare" title="Σύγκριση δύο γεωγραφικών επιπέδων στον ίδιο χάρτη" type="button">Σύγκριση</button>
-<a href="https://www.marineregions.org/gazetteer.php?id=49020&amp;p=details" rel="noopener noreferrer" target="_blank">Πηγή δεδομένων: Marine Regions ↗</a>
 </div>
 <div aria-label="Αποκλειστική Οικονομική Ζώνη" class="tool-group" role="group">
 <span class="tool-heading">ΑΟΖ</span>
@@ -235,6 +236,7 @@ main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65r
 <button aria-pressed="false" class="egypt-eez-switch" id="egypt-eez-toggle" title="Ελληνική και Αιγυπτιακή ΑΟΖ (VLIZ) και συμφωνημένη γραμμή 2020 από το επίσημο Παράρτημα της διμερούς συμφωνίας" type="button">Ελλάδα–Αίγυπτος</button>
 <button aria-pressed="false" class="turkey-libya-switch" id="turkey-libya-toggle" title="Γραμμή Α–Β από το τουρκολιβυκό μνημόνιο 2019 — η Ελλάδα και η ΕΕ απορρίπτουν τη νομική του ισχύ έναντι τρίτων κρατών" type="button">Τουρκολιβυκό (2019)</button>
 </div>
+<a class="map-source-link" href="https://www.marineregions.org/gazetteer.php?id=49020&amp;p=details" rel="noopener noreferrer" target="_blank">Πηγή: Marine Regions ↗</a>
 <div aria-label="Εστίαση σε γεωγραφική περιοχή" class="tool-group" role="group">
 <span class="tool-heading">Πλοήγηση</span>
 <button aria-pressed="false" class="meridian-26-switch" id="meridian-26-toggle" title="26° Α — Δυτικό άκρο της συμφωνίας Ελλάδας–Αιγύπτου 2020" type="button">26ος μεσημβρινός</button>
