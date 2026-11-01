@@ -141,6 +141,23 @@ main{padding:26px 0 45px}.toc{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 27p
 </ol><p style="font-size:.88rem;color:#557082">Όλα τα διαγράμματα δημιουργήθηκαν ειδικά για το 12milia.top και είναι σχηματικά. Δεν αναπαράγουν χάρτη του Πανεπιστημίου της Σεβίλλης και δεν απεικονίζουν αναγνωρισμένα θαλάσσια σύνορα.</p></section>
 </main><footer class="footer" id="site-footer"></footer><div class="privacy-overlay" hidden id="privacy-overlay"></div>
 <script data-id="47ee4eba-4db4-470b-afd4-a7f19971bc36" data-utcoffset="2" defer="" src="https://cdn.counter.dev/script.js"></script>
+<script>
+(function () {
+  const history = document.getElementById('historiko');
+  if (!history) return;
+  function openHistoryFromHash() {
+    if (window.location.hash === '#historiko') history.open = true;
+  }
+  openHistoryFromHash();
+  window.addEventListener('hashchange', openHistoryFromHash);
+  const contentsLink = document.querySelector('.toc a[href="#historiko"]');
+  if (contentsLink) {
+    contentsLink.addEventListener('click', function () {
+      history.open = true;
+    });
+  }
+})();
+</script>
 <script src="../assets/site-shell.js?v=1"></script>
 <script src="../assets/privacy.js?v=44"></script>
 </body></html>
