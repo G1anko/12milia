@@ -1,0 +1,22 @@
+/* 12milia.top — common site shell. Edit once for all three pages. */
+.topbar{background:#061b30;color:#fff}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:72px;flex-wrap:wrap;padding-block:12px}
+.brand{text-decoration:none;color:#fff;font-weight:850;font-size:1.34rem;letter-spacing:.015em}
+.brand span{color:#9dd5ed}
+.navlinks{display:flex;flex-wrap:wrap;gap:8px 22px}
+.navlinks a{font-size:.92rem;color:#ecf5fb;text-decoration:none}
+.navlinks a:hover{text-decoration:underline}
+.site-flag,.footer-flag{display:inline-block;width:24px;height:16px;vertical-align:-2px;margin-left:5px}
+.cyprus-strip{background:#e6f2f8;border-bottom:1px solid #d0e4ee}
+.cyprus-strip .wrap{display:flex;justify-content:center;padding-block:9px}
+.cyprus-remembrance{display:inline-flex;align-items:center;gap:9px;padding:8px 12px;border:1px solid #d3dfe7;border-radius:10px;background:#fff9e8;color:#24445a;text-decoration:none;font-size:.88rem;font-weight:680;line-height:1.4;box-shadow:0 2px 7px #041a2912}
+.cyprus-remembrance:hover{background:#fff1ce}
+.cyprus-remembrance img{width:32px;height:23px;object-fit:contain;border:1px solid #d4d4d4;background:white;border-radius:3px}
+.footer{background:#061b30;color:#d9e7f0;padding:36px 0;margin-top:45px}
+.footer a{color:#b8e4fc}
+.footer-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:34px;row-gap:18px;align-items:start}
+.footer-inner>div{min-width:0}
+.footer p{margin:5px 0;font-size:.9rem}
+.footer button{border:0;background:transparent;color:#b8e4fc;text-decoration:underline;cursor:pointer;padding:0;font:inherit;font-size:.9rem}
+@media(max-width:700px){.footer-inner{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:560px){.cyprus-strip .wrap{justify-content:center}.cyprus-remembrance{font-size:.81rem;white-space:normal;text-align:center;justify-content:center}}
