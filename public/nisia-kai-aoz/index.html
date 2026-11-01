@@ -49,7 +49,7 @@ main{padding-top:32px;padding-bottom:40px}.intro{color:#4b6174;max-width:870px}.
 .footer-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:34px;row-gap:18px;align-items:start}
 .footer-inner>div{min-width:0}
 @media(max-width:700px){.footer-inner{grid-template-columns:minmax(0,1fr)}}
-.anniversary-date{font-weight:750;color:#ffffff}.footer-year{color:#9db6c9}</style></head><body><header class="topbar"><nav aria-label="Κεντρική πλοήγηση" class="wrap nav"><a class="brand" href="../">12milia<span>.top</span><img src="../assets/gr-flag.svg" alt="" class="site-flag" width="24" height="16"/></a><div class="navlinks"><a href="../#overview">12 ν.μ.</a><a href="../basikes-ennoies/">Βασικές έννοιες</a><a href="../nisia-kai-aoz/">Ίμια &amp; Καστελλόριζο</a><a href="../#map">Χάρτες</a><a href="../#faq">Ερωτήσεις</a><a href="../#poll">🗳️ Ψήφισε</a><a href="../#sources">Πηγές</a></div></nav></header><div class="cyprus-strip"><div class="wrap"><a class="cyprus-remembrance" href="https://www.gov.cy/mfa/documents/toyrkiki-stratiotiki-eisvoli-kai-katochi/" id="cyprus-remembrance" rel="noopener noreferrer" target="_blank" title="Υπουργείο Εξωτερικών Κυπριακής Δημοκρατίας — Τουρκική στρατιωτική εισβολή και κατοχή"><img alt="Σημαία Κυπριακής Δημοκρατίας" height="23" src="https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Cyprus.svg" width="32"/><span id="cyprus-years">Τουρκική στρατιωτική εισβολή και κατοχή</span> <span aria-hidden="true">↗</span></a></div></div>
+.anniversary-date{font-weight:750;color:#ffffff}.footer-year{color:#9db6c9}</style><link rel="stylesheet" href="../assets/site-shell.css?v=1"/></head><body><header class="topbar" id="site-header"></header><div class="cyprus-strip" id="site-cyprus"></div>
 <section class="hero" id="top"><div class="wrap"><div class="eyebrow">Νησιά, κυριαρχία και θαλάσσιες ζώνες</div><h1>Ίμια &amp; Καστελλόριζο</h1><p>Οι επίσημες ελληνικές θέσεις, οι διεθνείς συνθήκες και η σημασία των νησιών στο Δίκαιο της Θάλασσας — με παραπομπές που μπορεί να ελέγξει κάθε επισκέπτης.</p><a class="back-link" href="../#map">← Επιστροφή στον χάρτη</a></div></section>
 <main class="wrap">
 <p class="intro">Τα Ίμια αφορούν πρωτίστως ζήτημα κυριαρχίας επί δύο νησίδων. Το Καστελλόριζο αφορά, μεταξύ άλλων, τα θαλάσσια δικαιώματα του ελληνικού νησιωτικού συμπλέγματος. Είναι διαφορετικά νομικά ζητήματα, γι’ αυτό και εξετάζονται χωριστά.</p>
@@ -81,22 +81,7 @@ main{padding-top:32px;padding-bottom:40px}.intro{color:#4b6174;max-width:870px}.
 <li><a href="https://www.un.org/depts/los/convention_agreements/texts/unclos/part5.htm" rel="noopener noreferrer" target="_blank">UNCLOS — άρθρο 74 για την οριοθέτηση ΑΟΖ</a>.</li>
 <li><a href="https://www.marineregions.org/gazetteer.php?id=5679&amp;p=details" rel="noopener noreferrer" target="_blank">VLIZ — Ελληνική ΑΟΖ (MRGID 5679)</a> και <a href="https://www.marineregions.org/gazetteer.php?id=8376&amp;p=details" rel="noopener noreferrer" target="_blank">Κυπριακή ΑΟΖ (MRGID 8376)</a>, επιστημονικές χαρτογραφικές εκτιμήσεις 2023.</li>
 <li><a href="https://data.gov.cy/el/dataset/apokleistiki-oikonomiki-zoni-ydrografika-dedomena" rel="noopener noreferrer" target="_blank">Κυπριακή Δημοκρατία — κρατικά γεωχωρικά δεδομένα ΑΟΖ</a>.</li>
-</ol></section></main><footer class="footer"><div class="wrap footer-inner"><div><strong>12milia.top 🇬🇷</strong><p>Ανεξάρτητη πρωτοβουλία ενημέρωσης για τα 12 ν.μ. και το Δίκαιο της Θάλασσας.</p><p><a aria-label="Επικοινωνία με email στο info@amomfaretos.top" href="mailto:info@amomfaretos.top">info@amomfaretos.top</a></p><p>Τελευταία ενημέρωση: <time datetime="2026-10-28"><strong class="anniversary-date">28 Οκτωβρίου</strong> <span class="footer-year">2026</span></time></p></div><div><p>Με επίσημες πηγές, διαδραστικούς χάρτες και τεκμηρίωση.</p><p><button aria-haspopup="dialog" id="privacy-open" type="button">Πληροφορίες απορρήτου</button></p><p><a href="#top">Επιστροφή στην αρχή ↑</a></p></div></div></footer><div class="privacy-overlay" hidden id="privacy-overlay"></div>
-<script>
-(function(){
- const now=new Date();
- let years=now.getFullYear()-1974;
- if(now.getMonth()<6 || (now.getMonth()===6 && now.getDate()<20)) years--;
- const isGreek=(navigator.language||'el').toLowerCase().startsWith('el');
- const el=document.getElementById('cyprus-remembrance');
- const yearsEl=document.getElementById('cyprus-years');
- if(!isGreek){
-   el.href='https://www.gov.cy/mfa/en/documents/turkish-military-invasion-and-occupation/';
-   yearsEl.textContent=years+' years Turkish military invasion and occupation — Cyprus: We do not forget';
- } else {
-   yearsEl.textContent=years+' χρόνια Τουρκική στρατιωτική εισβολή και κατοχή — Κύπρος: Δεν ξεχνώ';
- }
-
-})();
-</script><script data-id="47ee4eba-4db4-470b-afd4-a7f19971bc36" data-utcoffset="2" src="https://cdn.counter.dev/script.js"></script><script src="../assets/privacy.js?v=44"></script>
+</ol></section></main><footer class="footer" id="site-footer"></footer><div class="privacy-overlay" hidden id="privacy-overlay"></div>
+<script data-id="47ee4eba-4db4-470b-afd4-a7f19971bc36" data-utcoffset="2" src="https://cdn.counter.dev/script.js"></script><script src="../assets/site-shell.js?v=1"></script>
+<script src="../assets/privacy.js?v=44"></script>
 </body></html>
