@@ -63,7 +63,7 @@
       </div>
       <div><p>Με επίσημες πηγές, διαδραστικούς χάρτες και τεκμηρίωση.</p>
         <p><button aria-haspopup="dialog" id="privacy-open" type="button">Πληροφορίες απορρήτου</button></p>
-        <p><a href="#top">Επιστροφή στην αρχή ↑</a></p>
+        <p><a href="/">Επιστροφή στην αρχική σελίδα ↑</a></p>
       </div>
     </div>`;
 })();
