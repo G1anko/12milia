@@ -774,8 +774,23 @@ main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65r
 <script>
 (function(){
  const details=document.getElementById("sources-details");
- if(!details)return;
- function openFromHash(){if(location.hash==="#sources"||location.hash==="#sources-details")details.open=true;}
+ const section=document.getElementById("sources");
+ if(!details||!section)return;
+ function showSources(){
+  details.open=true;
+  requestAnimationFrame(function(){
+   requestAnimationFrame(function(){
+    section.scrollIntoView({block:"start",behavior:"instant"});
+   });
+  });
+ }
+ function openFromHash(){
+  if(location.hash==="#sources"||location.hash==="#sources-details")showSources();
+ }
+ document.addEventListener("click",function(event){
+  const link=event.target.closest('a[href="#sources"], a[href="#sources-details"]');
+  if(link)details.open=true;
+ });
  openFromHash();
  window.addEventListener("hashchange",openFromHash);
 })();
