@@ -59,11 +59,11 @@
       <div><strong>12milia.top <img src="${asset}gr-flag.svg" alt="Ελληνική σημαία" class="footer-flag" width="24" height="16"></strong>
         <p>Ανεξάρτητη πρωτοβουλία ενημέρωσης για τα 12 ν.μ. και το Δίκαιο της Θάλασσας.</p>
         <p><a aria-label="Επικοινωνία με email στο info@amomfaretos.top" href="mailto:info@amomfaretos.top">info@amomfaretos.top</a></p>
-        <p>Τελευταία ενημέρωση: <time datetime="2026-10-28"><strong class="anniversary-date">28 Οκτωβρίου</strong> <span class="footer-year">2026</span></time></p>
+        <p>Δημιουργία: <time datetime="2026-10-28"><strong class="anniversary-date">28 Οκτωβρίου</strong> <span class="footer-year">2026</span></time></p>
       </div>
       <div><p>Με επίσημες πηγές, διαδραστικούς χάρτες και τεκμηρίωση.</p>
         <p><button aria-haspopup="dialog" id="privacy-open" type="button">Πληροφορίες απορρήτου</button></p>
-        <p><a href="/">Επιστροφή στην αρχική 🏡</a></p>
+        <p><a href="/">Επιστροφή στην αρχική</a></p>
       </div>
     </div>`;
 })();
