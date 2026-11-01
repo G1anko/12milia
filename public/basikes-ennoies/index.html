@@ -48,7 +48,24 @@ main{padding:26px 0 45px}.toc{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 27p
 .privacy-close{position:absolute;right:14px;top:10px;border:0;background:transparent;font-size:2rem;line-height:1;cursor:pointer;color:#33536a}
 .privacy-modal a{overflow-wrap:anywhere}
 @media(max-width:560px){.cyprus-strip .wrap{justify-content:center}.cyprus-remembrance{font-size:.81rem;white-space:normal;text-align:center;justify-content:center}.privacy-modal{padding:24px 18px}}
-.anniversary-date{font-weight:750;color:#ffffff}.footer-year{color:#9db6c9}</style>
+.anniversary-date{font-weight:750;color:#ffffff}.footer-year{color:#9db6c9}
+/* Συνοπτικό αναδιπλούμενο ιστορικό 12 ναυτικών μιλίων */
+.history-details{margin-top:23px;border:1px solid #cbdfe9;border-radius:13px;background:#f4fafe;overflow:hidden;scroll-margin-top:18px}
+.history-details summary{display:flex;align-items:center;justify-content:space-between;gap:14px;cursor:pointer;padding:17px 20px;color:var(--navy);font-weight:800;list-style:none}
+.history-details summary::-webkit-details-marker{display:none}
+.history-details summary::after{content:"＋";font-size:1.35em;line-height:1}
+.history-details[open] summary::after{content:"−"}
+.history-details summary:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+.history-details .history-content{padding:0 20px 19px}
+.history-details .history-intro{margin-top:2px}
+.history-timeline{list-style:none;margin:17px 0;padding:0 0 0 18px;border-left:2px solid #acd0e3}
+.history-timeline li{position:relative;padding:0 0 16px 19px}
+.history-timeline li:last-child{padding-bottom:0}
+.history-timeline li::before{content:"";position:absolute;left:-24px;top:9px;width:10px;height:10px;border-radius:50%;background:#1277a2;border:2px solid #f4fafe}
+.history-timeline strong{color:var(--navy)}
+.history-details .history-sources{font-size:.87rem;color:var(--muted);margin-bottom:0}
+@media(max-width:560px){.history-details summary{padding:14px 15px}.history-details .history-content{padding:0 15px 16px}}
+</style>
 <link href="../assets/favicon.svg" rel="icon" type="image/svg+xml"/><style>
 /* v39: Ενιαία δίστηλη διάταξη υποσέλιδου και σημαία επωνυμίας */
 .site-flag{   display:inline-block;   width:24px;   height:16px;   vertical-align:-2px;   margin-left:5px; }
@@ -60,14 +77,37 @@ main{padding:26px 0 45px}.toc{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 27p
 <section class="hero" id="top"><div class="wrap"><div class="eyebrow">Εικονογραφημένος οδηγός • Διεθνές Δίκαιο της Θάλασσας</div><h1>Οι θαλάσσιες ζώνες με απλά λόγια</h1><p>Τι σημαίνουν χωρικά ύδατα, γραμμές βάσης, υφαλοκρηπίδα και ΑΟΖ; Τέσσερα πρωτότυπα διαγράμματα και οι επίσημες πηγές, χωρίς να συγχέουμε το νομικό δικαίωμα με μια συγκεκριμένη οριοθέτηση.</p><a class="back-link" href="../#map">← Επιστροφή στον χάρτη</a></div></section>
 <main class="wrap">
 <div class="notice"><strong>Πώς να διαβάζεις τις εικόνες:</strong> Είναι εκπαιδευτικά σχήματα, όχι χάρτες επίσημων θαλάσσιων συνόρων. Οι αποστάσεις δεν αποδίδονται σε πραγματική κλίμακα και οι γραμμές απλουστεύονται για να εξηγούν τις βασικές έννοιες.</div>
-<nav aria-label="Περιεχόμενα οδηγού" class="toc"><a href="#chorika">01 · Χωρικά ύδατα</a><a href="#grammes">02 · Γραμμές βάσης</a><a href="#yfalokripida">03 · Υφαλοκρηπίδα και ΑΟΖ</a><a href="#nisia">04 · Τα νησιά</a></nav>
+<nav aria-label="Περιεχόμενα οδηγού" class="toc"><a href="#chorika">01 · Χωρικά ύδατα</a><a href="#historiko">Ιστορική εξέλιξη</a><a href="#grammes">02 · Γραμμές βάσης</a><a href="#yfalokripida">03 · Υφαλοκρηπίδα και ΑΟΖ</a><a href="#nisia">04 · Τα νησιά</a></nav>
 <section class="concept" id="chorika"><div class="eyebrow">Ενότητα 01</div><h2>Αιγιαλίτιδα ζώνη ή χωρικά ύδατα</h2>
 <p>Η <strong>αιγιαλίτιδα ζώνη</strong> (χωρικά ύδατα) είναι η θαλάσσια περιοχή που εκτείνεται πέρα από την ξηρά και τα εσωτερικά ύδατα. Σε αυτήν το παράκτιο κράτος ασκεί <strong>κυριαρχία</strong> στη θάλασσα, στον βυθό, στο υπέδαφος και στον υπερκείμενο εναέριο χώρο, σύμφωνα με το Διεθνές Δίκαιο. Η κυριαρχία συνυπάρχει με κανόνες όπως το δικαίωμα αβλαβούς διέλευσης των ξένων πλοίων.</p>
 <p>Το <strong>άρθρο 3 της UNCLOS</strong> αναγνωρίζει σε κάθε κράτος δικαίωμα καθορισμού εύρους έως <strong>12 ναυτικά μίλια</strong> από τις νόμιμες γραμμές βάσης (1 ν.μ. = 1,852 χλμ.). Το 12 είναι το επιτρεπόμενο ανώτατο εύρος, όχι η αυτόματη σημερινή κατάσταση κάθε θαλάσσιας περιοχής.</p>
 <figure class="figure"><img alt="Σχηματικό διάγραμμα χωρικών υδάτων από ακτή με ζώνες 0–6 και 6–12 ναυτικών μιλίων" height="480" loading="lazy" src="assets/01-chorika-ydata.svg" width="1120"/><figcaption><strong>Εικόνα 1.</strong> Σχηματική μέτρηση των 12 ν.μ. από τη γραμμή βάσης. Η διάκριση 0–6 και 6–12 ν.μ. βοηθά στην κατανόηση της επέκτασης.</figcaption></figure>
 <div class="two-up"><div class="fact"><p><strong>Ελλάδα σήμερα:</strong> Το ελληνικό ΥΠΕΞ αναφέρει ότι το εύρος ορίστηκε γενικά στα 6 ν.μ. το 1936 και ότι η Ελλάδα επέκτεινε την αιγιαλίτιδα ζώνη στα 12 ν.μ. στο Ιόνιο, με τον νόμο 4767/2021.</p></div><div class="fact"><p><strong>Δικαίωμα επέκτασης:</strong> Η ελληνική επίσημη θέση είναι ότι το δικαίωμα για καθορισμό του εύρους έως 12 ν.μ. μπορεί να ασκηθεί μονομερώς, σύμφωνα με το Δίκαιο της Θάλασσας. Η οριοθέτηση απέναντι σε άλλα κράτη είναι διαφορετικό ζήτημα.</p></div></div>
-<p class="source-links"><a href="https://www.un.org/Depts/los/convention_agreements/texts/unclos/part2.htm" rel="noopener noreferrer" target="_blank">UNCLOS, άρθρα 2–3, 15, 17 ↗</a> · <a href="https://www.mfa.gr/exoteriki-politiki/eidika-themata-exoterikis-politikis/zitimata-ellinotourkikon-scheseon/aigialitida-zoni-casus-belli/" rel="noopener noreferrer" target="_blank">Ελληνικό ΥΠΕΞ — Αιγιαλίτιδα ζώνη ↗</a></p></section>
-<section class="concept" id="grammes"><div class="eyebrow">Ενότητα 02</div><h2>Γραμμές βάσης: από πού μετράμε τα μίλια;</h2>
+<p class="source-links"><a href="https://www.un.org/Depts/los/convention_agreements/texts/unclos/part2.htm" rel="noopener noreferrer" target="_blank">UNCLOS, άρθρα 2–3, 15, 17 ↗</a> · <a href="https://www.mfa.gr/exoteriki-politiki/eidika-themata-exoterikis-politikis/zitimata-ellinotourkikon-scheseon/aigialitida-zoni-casus-belli/" rel="noopener noreferrer" target="_blank">Ελληνικό ΥΠΕΞ — Αιγιαλίτιδα ζώνη ↗</a></p>
+<details class="history-details" id="historiko">
+<summary>Η ιστορική εξέλιξη των 12 ναυτικών μιλίων</summary>
+<div class="history-content">
+<p class="history-intro">Το δικαίωμα καθορισμού αιγιαλίτιδας ζώνης έως 12 ν.μ. δεν εμφανίστηκε ξαφνικά το 1982. Διαμορφώθηκε μέσα από διαφορετικές κρατικές πρακτικές, διεθνείς διαπραγματεύσεις και τελικά τη Σύμβαση του ΟΗΕ για το Δίκαιο της Θάλασσας.</p>
+<ol class="history-timeline">
+<li><strong>Παραδοσιακό όριο 3 ν.μ.</strong> — Για μεγάλο διάστημα αρκετές ναυτικές δυνάμεις υποστήριζαν την περιορισμένη αιγιαλίτιδα ζώνη των τριών ναυτικών μιλίων, αλλά δεν ακολουθούσαν όλα τα κράτη τον ίδιο κανόνα.</li>
+<li><strong>1921 — Πρώιμη εφαρμογή των 12 ν.μ.</strong> — Η Σοβιετική Ρωσία καθιέρωσε όριο 12 ναυτικών μιλίων, πολύ πριν από τη Σύμβαση του 1982.</li>
+<li><strong>1936 — Ελλάδα: 6 ν.μ.</strong> — Με τον ν. 230/1936 καθορίστηκε γενικά στα 6 ν.μ. το εύρος της ελληνικής αιγιαλίτιδας ζώνης.</li>
+<li><strong>1958 και 1960 — Διεθνείς διασκέψεις.</strong> — Οι δύο διασκέψεις του ΟΗΕ στη Γενεύη δεν κατέληξαν σε κοινώς αποδεκτό ανώτατο εύρος αιγιαλίτιδας ζώνης.</li>
+<li><strong>Τέλη δεκαετίας 1960 — Εξάπλωση των 12 ν.μ.</strong> — Η διεθνής πρακτική στράφηκε σταδιακά προς τα 12 ν.μ., με πολλά παράκτια κράτη να διεκδικούν ήδη αυτό το εύρος.</li>
+<li><strong>1982 — Σύμβαση του ΟΗΕ (UNCLOS).</strong> — Το άρθρο 3 αναγνωρίζει το δικαίωμα κάθε κράτους να καθορίζει αιγιαλίτιδα ζώνη έως 12 ν.μ. από τις νόμιμες γραμμές βάσης.</li>
+<li><strong>1994 — Έναρξη ισχύος.</strong> — Η UNCLOS τέθηκε σε ισχύ στις 16 Νοεμβρίου 1994.</li>
+<li><strong>2021 — Επέκταση στο Ιόνιο.</strong> — Με τον ν. 4767/2021 η Ελλάδα επέκτεινε την αιγιαλίτιδα ζώνη της στα 12 ν.μ. στην περιοχή του Ιονίου, όπως ορίζει ο νόμος.</li>
+</ol>
+<p><strong>Σημαντική διάκριση:</strong> η υιοθέτηση των 12 ν.μ. από κράτη πριν από το 1982 δεν σημαίνει ότι υπήρχε ήδη παγκοσμίως αποδεκτός συμβατικός κανόνας. Το άρθρο 3 της UNCLOS αποτύπωσε ένα δικαίωμα που σήμερα αναγνωρίζεται και ως εθιμικό διεθνές δίκαιο.</p>
+<p class="history-sources"><strong>Πηγές:</strong>
+<a href="https://static.un.org/Depts/los/convention_agreements/convention_historical_perspective.htm" target="_blank" rel="noopener noreferrer">ΟΗΕ — Ιστορική εξέλιξη της UNCLOS ↗</a> ·
+<a href="https://www.un.org/Depts/los/convention_agreements/texts/unclos/part2.htm" target="_blank" rel="noopener noreferrer">UNCLOS — άρθρο 3 ↗</a> ·
+<a href="https://www.mfa.gr/exoteriki-politiki/eidika-themata-exoterikis-politikis/zitimata-ellinotourkikon-scheseon/aigialitida-zoni-casus-belli/" target="_blank" rel="noopener noreferrer">Ελληνικό ΥΠΕΞ — Αιγιαλίτιδα ζώνη ↗</a> ·
+<a href="https://digitallibrary.un.org/record/4082899/files/A_AC.138_SC.II_SR.48-62-EN.pdf" target="_blank" rel="noopener noreferrer">Αρχεία ΟΗΕ — ιστορική αναφορά στο 1921 ↗</a>.
+</p>
+</div>
+</details></section>
+<section class="concept" id="grammes"<div class="eyebrow">Ενότητα 02</div><h2>Γραμμές βάσης: από πού μετράμε τα μίλια;</h2>
 <p>Η απόσταση δεν μετριέται γενικά «από την ακτή όπως φαίνεται στον χάρτη». Η UNCLOS καθορίζει τη <strong>γραμμή βάσης</strong> ως αφετηρία μέτρησης. Η κανονική γραμμή βάσης είναι κατά κανόνα η <strong>γραμμή ρηχίας</strong>, δηλαδή η γραμμή χαμηλής στάθμης των υδάτων, όπως αποτυπώνεται σε επίσημους ναυτικούς χάρτες μεγάλης κλίμακας.</p>
 <p>Σε συγκεκριμένες γεωγραφικές συνθήκες —όπως ιδιαίτερα εσοχικές ακτές ή συστάδες νησιών πολύ κοντά στην ακτή— το άρθρο 7 επιτρέπει <strong>ευθείες γραμμές βάσης</strong>, με αυστηρές προϋποθέσεις. Δεν μπορούμε να ενώσουμε αυθαίρετα όλα τα ελληνικά νησιά με ευθείες.</p>
 <figure class="figure"><img alt="Δύο παραδείγματα ακτογραμμής με κανονική και ευθεία γραμμή βάσης" height="480" loading="lazy" src="assets/02-grammes-basis.svg" width="1120"/><figcaption><strong>Εικόνα 2.</strong> Διαφορά κανονικής και ευθείας γραμμής βάσης. Οι ευθείες είναι επιτρεπτές μόνο υπό συγκεκριμένους κανόνες, όχι παντού.</figcaption></figure>
