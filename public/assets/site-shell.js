@@ -67,4 +67,7 @@
         <p><a href="/">Επιστροφή στην αρχική</a></p>
       </div>
     </div>`;
+  const searchScript = document.createElement('script');
+  searchScript.src = asset + 'site-search.js?v=1';
+  document.body.appendChild(searchScript);
 })();
