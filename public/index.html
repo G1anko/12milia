@@ -389,7 +389,7 @@ main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65r
 <details><summary>Μπορούν να περνούν ξένα πλοία;</summary><p>Ναι, η Σύμβαση προβλέπει δικαίωμα αβλαβούς διέλευσης υπό συγκεκριμένες προϋποθέσεις (<a href="https://www.un.org/Depts/los/convention_agreements/texts/unclos/part2.htm" rel="noopener noreferrer" target="_blank">άρθρα 17 και επόμενα ↗</a>).</p></details></section>
 <section class="section" id="articles-videos">
 <h2>Άρθρα και βίντεο</h2>
-<details class="sources-details media-reading">
+<details class="sources-details media-reading" id="articles-videos-details">
 <summary>Επιλεγμένο υλικό για περαιτέρω ενημέρωση</summary>
 <div class="sources-details-body">
 <p class="intro">Άρθρα και βίντεο για το Δίκαιο της Θάλασσας και τις ελληνοτουρκικές σχέσεις. Οι απόψεις εκφράζουν τους δημιουργούς τους και δεν υποκαθιστούν τις επίσημες πηγές.</p>
@@ -793,6 +793,25 @@ main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65r
 <script data-id="47ee4eba-4db4-470b-afd4-a7f19971bc36" data-utcoffset="2" src="https://cdn.counter.dev/script.js"></script>
 <script src="assets/site-shell.js?v=1"></script>
 <script src="assets/privacy.js?v=44"></script>
+<script>
+(function () {
+  const section = document.getElementById('articles-videos');
+  const details = document.getElementById('articles-videos-details');
+  if (!section || !details) return;
+  function openFromHash() {
+    if (location.hash === '#articles-videos' || location.hash === '#articles-videos-details') {
+      details.open = true;
+    }
+  }
+  document.addEventListener('click', function (event) {
+    const link = event.target.closest('a[href="#articles-videos"], a[href="#articles-videos-details"]');
+    if (link) details.open = true;
+  });
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
+})();
+</script>
+
 <script>
 (function(){
  const details=document.getElementById("sources-details");
