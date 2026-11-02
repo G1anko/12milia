@@ -160,7 +160,16 @@ main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65r
 
 /* v38 — Poll and feedback */
 .poll-card{margin:18px 0 22px;padding:22px;border:1px solid #b8d7e8;border-left:5px solid #147dad;border-radius:13px;background:#f0f9fd}.poll-card h3{color:#082b4d;margin:0 0 8px}.poll-card p{margin:9px 0}.poll-card fieldset{border:0;padding:0;margin:12px 0;display:grid;gap:7px}.poll-card label{display:block;cursor:pointer}.poll-card input{accent-color:#075b85}.poll-card button{padding:10px 22px;background:#075b85;color:#fff;border:0;border-radius:9px;font:inherit;font-weight:700;cursor:pointer}.poll-card button:disabled{opacity:.6;cursor:not-allowed}.poll-card small{display:block;font-size:.81rem;color:#596f80;margin-top:12px}.poll-status{font-size:.92rem;color:#476071}.poll-result-row{display:grid;grid-template-columns:minmax(0,1fr) 58px;gap:3px 12px;margin:12px 0}.poll-bar{grid-column:1 / -1;background:#dcebf2;border-radius:8px;overflow:hidden;height:12px}.poll-bar span{display:block;background:#147ca8;height:100%;width:0}.feedback{border-top:1px solid #dce7ef;margin-top:22px;padding-top:20px}.feedback p{margin:8px 0;color:#4b6172}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-.anniversary-date{font-weight:750;color:#ffffff}.footer-year{color:#9db6c9}</style>
+.anniversary-date{font-weight:750;color:#ffffff}.footer-year{color:#9db6c9}
+/* Επιλεγμένα άρθρα και βίντεο */
+.media-reading-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.media-reading-list article{background:#fff;border:1px solid var(--border);border-radius:12px;padding:20px}
+.media-reading-list h3{margin:8px 0;color:var(--navy);font-size:1.1rem}
+.media-reading-list p{margin:0 0 12px;color:var(--muted);font-size:.9rem}
+.media-reading-list a{font-weight:700;overflow-wrap:anywhere}
+.media-reading-type{font-size:.8rem;font-weight:750;color:#17678b}
+@media(max-width:700px){.media-reading-list{grid-template-columns:1fr}}
+</style>
 <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/><style>
 /* Δίστηλο υποσέλιδο και σημαία */
 .site-flag{   display:inline-block;   width:24px;   height:16px;   vertical-align:-2px;   margin-left:5px; }
@@ -378,6 +387,19 @@ main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65r
 <details><summary>Η επέκταση στα 12 ναυτικά μίλια γίνεται αυτόματα;</summary><p>Όχι. Η UNCLOS αναγνωρίζει το δικαίωμα καθορισμού εύρους μέχρι τα 12 ν.μ., αλλά η άσκησή του και τυχόν οριοθέτηση έναντι γειτονικών κρατών είναι διαφορετικές διαδικασίες.</p></details>
 <details><summary>Τι διαφορά έχουν τα χωρικά ύδατα από την ΑΟΖ;</summary><p>Στα χωρικά ύδατα το παράκτιο κράτος ασκεί κυριαρχία, υπό τους κανόνες του Διεθνούς Δικαίου. Στην Αποκλειστική Οικονομική Ζώνη ασκεί ειδικά κυριαρχικά δικαιώματα και δικαιοδοσίες, κυρίως για ορισμένες οικονομικές δραστηριότητες· δεν πρόκειται για το ίδιο νομικό καθεστώς.</p></details>
 <details><summary>Μπορούν να περνούν ξένα πλοία;</summary><p>Ναι, η Σύμβαση προβλέπει δικαίωμα αβλαβούς διέλευσης υπό συγκεκριμένες προϋποθέσεις (<a href="https://www.un.org/Depts/los/convention_agreements/texts/unclos/part2.htm" rel="noopener noreferrer" target="_blank">άρθρα 17 και επόμενα ↗</a>).</p></details></section>
+<section class="section" id="articles-videos">
+<h2>Άρθρα και βίντεο</h2>
+<details class="sources-details media-reading" id="articles-videos-details">
+<summary>Επιλεγμένο υλικό για περαιτέρω ενημέρωση</summary>
+<div class="sources-details-body">
+<p class="intro">Άρθρα και βίντεο για το Δίκαιο της Θάλασσας και τις ελληνοτουρκικές σχέσεις. Οι απόψεις εκφράζουν τους δημιουργούς τους και δεν υποκαθιστούν τις επίσημες πηγές.</p>
+<div class="media-reading-list">
+<article><span class="media-reading-type">Άρθρο γνώμης</span><h3>Μια σύνθεση ισχύος, διπλωματίας και Δικαίου της Θάλασσας</h3><p>Κωνσταντίνος Γρίβας · Νέα Κρήτη · 1 Νοεμβρίου 2026</p><a href="https://www.neakriti.gr/apopseis/2208838_mia-synthesi-ishyos-diplomatias-kai-dikaioy-tis-thalassas" target="_blank" rel="noopener noreferrer">Διάβασε το άρθρο ↗</a></article>
+<article><span class="media-reading-type">Βίντεο</span><h3>Τα 12 ναυτικά μίλια και οι ελληνοτουρκικές σχέσεις</h3><p>Εκπομπή Leaders · YouTube · έναρξη από το 1:55</p><a href="https://youtu.be/uC8gBuO61Dk?t=115" target="_blank" rel="noopener noreferrer">Δες το βίντεο ↗</a></article>
+</div>
+</div>
+</details>
+</section>
 <section class="section" id="sources"><details class="sources-details" id="sources-details"><summary>Πηγές και επίσημα έγγραφα</summary><div class="sources-details-body"><p class="intro">Για κάθε ουσιαστικό νομικό ισχυρισμό προτιμάμε να μπορεί ο αναγνώστης να ελέγχει το αρχικό κείμενο.</p><div class="card"><ol class="sources"><li><a href="https://www.hellenicparliament.gr/Nomothetiko-Ergo/Anazitisi-Nomothetikou-Ergou/?law_id=0b8cde8c-10bd-452f-b8a9-acaa0122a1a5" rel="noopener noreferrer" target="_blank">Βουλή των Ελλήνων — Ν. 4767/2021</a>: επέκταση αιγιαλίτιδας ζώνης στα 12 ν.μ. στο Ιόνιο.</li><li><a href="https://www.hellenicparliament.gr/nomothetiko-ergo/anazitisi-nomothetikou-ergou?law_id=6bb2eda2-a769-436d-abd5-a3a2084fddfa" rel="noopener noreferrer" target="_blank">Βουλή των Ελλήνων — Ν. 2321/1995</a>: κύρωση της Σύμβασης του ΟΗΕ για το Δίκαιο της Θάλασσας.</li><li><a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52025SC0756" rel="noopener noreferrer" target="_blank">Ευρωπαϊκή Επιτροπή — Έκθεση Τουρκίας 2025</a>: εξέλιξη των ελληνοτουρκικών σχέσεων και σχετικές διαπιστώσεις της Επιτροπής.</li><li><a href="https://www.un.org/Depts/los/convention_agreements/texts/unclos/part2.htm" rel="noopener noreferrer" target="_blank">ΟΗΕ — Σύμβαση για το Δίκαιο της Θάλασσας (UNCLOS), Μέρος II</a>: αιγιαλίτιδα ζώνη, όρια, οριοθέτηση, αβλαβής διέλευση.</li><li><a href="https://www.un.org/Depts/los/convention_agreements/texts/unclos/unclos_e.pdf" rel="noopener noreferrer" target="_blank">ΟΗΕ — Πλήρες κείμενο της UNCLOS (PDF)</a>.</li><li><a href="https://www.mfa.gr/exoteriki-politiki/eidika-themata-exoterikis-politikis/zitimata-ellinotourkikon-scheseon/tourkikes-diekdikiseis/" rel="noopener noreferrer" target="_blank">Ελληνικό ΥΠΕΞ — Τουρκικές διεκδικήσεις</a>: επίσημη ελληνική τεκμηρίωση για την κυριαρχία επί των Ιμίων (1923, 1932, 1947).</li><li><a href="https://www.marineregions.org/gazetteer.php?id=49020&amp;p=details" rel="noopener noreferrer" target="_blank">VLIZ — Greek 12 NM (MRGID 49020)</a>: χαρτογραφικό επίπεδο θαλάσσιας ζώνης.</li><li><a href="https://www.geoboundaries.org/" rel="noopener noreferrer" target="_blank">geoBoundaries — ανοικτά γεωγραφικά δεδομένα ελληνικής ξηράς</a>: βάση για την υπολογιστική ζώνη 6 ν.μ.</li><li><a href="https://www.marineregions.org/gazetteer.php?id=5679&amp;p=details" rel="noopener noreferrer" target="_blank">VLIZ — Greek Exclusive Economic Zone (MRGID 5679)</a>: χαρτογραφικό σενάριο ελληνικής ΑΟΖ, v12 (2023).</li><li><a href="https://www.marineregions.org/gazetteer.php?id=8376&amp;p=details" rel="noopener noreferrer" target="_blank">VLIZ — Cypriote Exclusive Economic Zone (MRGID 8376)</a>: χαρτογραφική αναπαράσταση κυπριακής ΑΟΖ, v12 (2023).</li><li><a href="https://www.mfa.gr/synentefxi-ypourgou-exoterikon-giorgou-gerapetriti-stin-efimerida-parapolitika-kai-ti-dimosiografo-katerina-tsamouri-26-04-2025/" rel="noopener noreferrer" target="_blank">Ελληνικό ΥΠΕΞ — Θαλάσσια δικαιώματα ελληνικών νησιών (26.04.2025)</a>.</li><li><a href="https://data.gov.cy/el/dataset/apokleistiki-oikonomiki-zoni-ydrografika-dedomena" rel="noopener noreferrer" target="_blank">Κυπριακή Δημοκρατία — γεωχωρικά δεδομένα ΑΟΖ</a>.</li><li><a href="https://ypen.gov.gr/wp-content/uploads/2025/10/FEK_2025-D-229_%CE%98%CE%A7%CE%A3_%CE%BA%CE%B1%CE%B8%CE%BF%CF%81%CE%B9%CF%83%CE%BC%CE%BF%CF%82-%CF%87%CF%89%CF%81-%CE%B5%CE%BD%CE%BF%CF%84%CE%B7%CF%84%CF%89%CE%BD.pdf" rel="noopener noreferrer" target="_blank">ΦΕΚ Δ΄ 229/2025 — Θαλάσσιος χωροταξικός σχεδιασμός</a>: επίσημος χάρτης με αναφορά στις ισχύουσες οριοθετήσεις.</li><li><a href="https://treaties.un.org/doc/Publication/UNTS/No%20Volume/56237/Part/I-56237-080000028058a22f.pdf" rel="noopener noreferrer" target="_blank">ΟΗΕ — Συμφωνία ΑΟΖ Ελλάδας–Αιγύπτου (2020), Παράρτημα I</a>: οι ακριβείς συντεταγμένες του συμφωνημένου τμήματος Α–Ε.</li><li><a href="https://www.e-nomothesia.gr/diethneis-sunthekes/nomos-4717-2020-phek-164a-28-8-2020.html" rel="noopener noreferrer" target="_blank">Νόμος 4717/2020</a>: κύρωση της συμφωνίας στην Ελλάδα.</li><li><a href="https://www.marineregions.org/gazetteer.php?id=8490&amp;p=details" rel="noopener noreferrer" target="_blank">VLIZ — Egyptian Exclusive Economic Zone (MRGID 8490)</a>: επιστημονικό μοντέλο Αιγυπτιακής ΑΟΖ, v12 (2023).</li><li><a href="https://www.mfa.gr/images/docs/maps/en/map13.pdf" rel="noopener noreferrer" target="_blank">Ελληνικό ΥΠΕΞ — Χάρτης 13 για το τουρκολιβυκό μνημόνιο</a>: συνολική επίσημη ελληνική χαρτογραφική παρουσίαση.</li><li><a href="https://www.mfa.gr/en/announcement-by-the-ministry-of-foreign-affairs-on-the-decision-of-the-libyan-house-of-representatives-concerning-the-turkish-libyan-memorandum-20-10-2026/" rel="noopener noreferrer" target="_blank">Ελληνικό ΥΠΕΞ — Ανακοίνωση 20.10.2026</a>: επίσημη ελληνική νομική θέση.</li><li><a href="https://treaties.un.org/Pages/showDetails.aspx?objid=080000028056605a" rel="noopener noreferrer" target="_blank">ΟΗΕ — Καταχώριση τουρκολιβυκού μνημονίου του 2019</a>: δημοσιευμένες συντεταγμένες και κείμενο της οριοθέτησης που επικαλούνται τα συμβαλλόμενα μέρη.</li></ol></div></div></details><div class="card"><div class="feedback"><strong>Παρατηρήσεις και διορθώσεις</strong><p>Καταβάλλουμε προσπάθεια ώστε οι πληροφορίες και οι χάρτες του ιστότοπου να είναι ακριβείς και τεκμηριωμένοι. Αν εντοπίσετε κάποιο λάθος, ανακρίβεια ή σύνδεσμο που δεν λειτουργεί, παρακαλούμε επικοινωνήστε μαζί μας.</p></div></div></section>
 </main>
 <footer class="footer" id="site-footer"></footer>
@@ -771,6 +793,25 @@ main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65r
 <script data-id="47ee4eba-4db4-470b-afd4-a7f19971bc36" data-utcoffset="2" src="https://cdn.counter.dev/script.js"></script>
 <script src="assets/site-shell.js?v=1"></script>
 <script src="assets/privacy.js?v=44"></script>
+<script>
+(function () {
+  const section = document.getElementById('articles-videos');
+  const details = document.getElementById('articles-videos-details');
+  if (!section || !details) return;
+  function openFromHash() {
+    if (location.hash === '#articles-videos' || location.hash === '#articles-videos-details') {
+      details.open = true;
+    }
+  }
+  document.addEventListener('click', function (event) {
+    const link = event.target.closest('a[href="#articles-videos"], a[href="#articles-videos-details"]');
+    if (link) details.open = true;
+  });
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
+})();
+</script>
+
 <script>
 (function(){
  const details=document.getElementById("sources-details");
