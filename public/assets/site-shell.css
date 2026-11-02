@@ -30,7 +30,8 @@
 }
 
 /* Lightweight, accessible site-wide search */
-.site-search-trigger{display:inline-flex;align-items:center;justify-content:center;border:1px solid #ffffff65;border-radius:9px;background:transparent;color:#ecf5fb;cursor:pointer;padding:5px 8px;font:inherit}
+.navlinks{align-items:center}
+.site-search-trigger{display:inline-flex;align-items:center;justify-content:center;align-self:center;border:1px solid #ffffff65;border-radius:9px;background:transparent;color:#ecf5fb;cursor:pointer;padding:5px 8px;font:inherit;line-height:1}
 .site-search-trigger:hover,.site-search-trigger:focus-visible{background:#ffffff24}
 .site-search-active{overflow:hidden}
 .site-search-overlay[hidden]{display:none}
