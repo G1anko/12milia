@@ -27,7 +27,7 @@
   const overlay = document.createElement('div');
   overlay.className = 'site-search-overlay';
   overlay.hidden = true;
-  overlay.innerHTML = '<div class="site-search-dialog" role="dialog" aria-modal="true" aria-labelledby="site-search-heading"><div class="site-search-heading"><h2 id="site-search-heading">Αναζήτηση στο 12milia.top</h2><button type="button" class="site-search-close" aria-label="Κλείσιμο αναζήτησης">×</button></div><label for="site-search-input">Τι αναζητάς;</label><input id="site-search-input" type="search" autocomplete="off" placeholder="π.χ. Κύπρος, 1931, casus belli"><p class="site-search-status" role="status" aria-live="polite"></p><div class="site-search-results"></div><p class="site-search-note">Αναζήτηση μόνο στις τρεις σελίδες του ιστοτόπου, χωρίς αποστολή του ερωτήματος σε τρίτους.</p></div>';
+  overlay.innerHTML = '<div class="site-search-dialog" role="dialog" aria-modal="true" aria-labelledby="site-search-heading"><div class="site-search-heading"><h2 id="site-search-heading">Αναζήτηση στο 12milia.top</h2><button type="button" class="site-search-close" aria-label="Κλείσιμο αναζήτησης">×</button></div><label for="site-search-input">Τι αναζητάς;</label><input id="site-search-input" type="search" autocomplete="off" placeholder="π.χ. Κύπρος, 1931, casus belli"><p class="site-search-status" role="status" aria-live="polite"></p><div class="site-search-results"></div><p class="site-search-note">Αναζήτηση στις σελίδες του ιστοτόπου, χωρίς αποστολή του ερωτήματος σε τρίτους.</p></div>';
   document.body.appendChild(overlay);
   const input = overlay.querySelector('input');
   const results = overlay.querySelector('.site-search-results');
