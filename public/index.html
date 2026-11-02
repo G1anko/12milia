@@ -803,14 +803,22 @@ main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65r
   const section = document.getElementById('articles-videos');
   const details = document.getElementById('articles-videos-details');
   if (!section || !details) return;
+  function showArticles() {
+    details.open = true;
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        section.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      });
+    });
+  }
   function openFromHash() {
     if (location.hash === '#articles-videos' || location.hash === '#articles-videos-details') {
-      details.open = true;
+      showArticles();
     }
   }
   document.addEventListener('click', function (event) {
     const link = event.target.closest('a[href="#articles-videos"], a[href="#articles-videos-details"]');
-    if (link) details.open = true;
+    if (link) showArticles();
   });
   openFromHash();
   window.addEventListener('hashchange', openFromHash);
