@@ -11,6 +11,7 @@
     ['Χάρτες', root + '#map'],
     ['Ερωτήσεις', root + '#faq'],
     ['🗳️ Ψήφισε', root + '#poll'],
+    ['Άρθρα & βίντεο', root + '#articles-videos'],
     ['Πηγές', root + '#sources']
   ];
   const nav = document.getElementById('site-header');
