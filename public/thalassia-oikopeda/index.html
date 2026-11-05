@@ -35,6 +35,9 @@ main{padding:26px 0 30px}.section{padding:22px 0;scroll-margin-top:12px}.section
 .small{font-size:.88rem;color:var(--muted)}.date{font-size:.86rem;color:#4c697d}
 .footnote{color:#516d80;font-size:.87rem;margin-top:13px}
 .leaflet-control-attribution{font-size:11px!important;line-height:1.5!important;text-align:right}.leaflet-control-attribution a{text-decoration:none}.leaflet-control-attribution a:hover{text-decoration:underline}
+/* Αριθμοί τεμαχίων: μόνο όταν προκύπτουν από αναγνωρισμένο πεδίο των επίσημων δεδομένων. */
+.leaflet-tooltip.cy-block-number{background:#fff;color:#064c7b;border:2px solid #0a6dab;border-radius:50%;min-width:27px;height:27px;padding:0 4px;line-height:23px;font-size:13px;font-weight:850;text-align:center;box-shadow:0 2px 7px #0a24364a;pointer-events:none}
+.leaflet-tooltip.cy-block-number:before{display:none}
 .anniversary-date{font-weight:750;color:#fff}.footer-year{color:#9db6c9}
 @media(max-width:850px){.map-shell{grid-template-columns:1fr}.map-aside{border-left:0;border-top:1px solid var(--border)}#blocks-map{height:450px}.guide-grid{grid-template-columns:1fr}}
 @media(max-width:620px){.hero{padding:50px 0 58px}.country-grid{grid-template-columns:1fr}.card{padding:19px}.map-toolbar{gap:6px}.country-btn{font-size:.85rem;padding:8px 9px}#blocks-map{height:390px}}
@@ -179,11 +182,45 @@ main{padding:26px 0 30px}.section{padding:22px 0;scroll-margin-top:12px}.section
  const params=new URLSearchParams({where:'1=1',outFields:'*',returnGeometry:'true',outSR:'4326',f:'geojson'});
  fetch(endpoint+'?'+params,{mode:'cors'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(data=>{
   if(data.type!=='FeatureCollection'||!Array.isArray(data.features)||!data.features.length)throw Error('Κενή απάντηση');
+  // Ο αριθμός οικοπέδου ΔΕΝ ταυτίζεται απαραίτητα με το OBJECTID της βάσης.
+  // Αναγνωρίζουμε μόνο πεδία με όνομα που υποδηλώνει τεμάχιο/οικόπεδο.
+  function asBlockNumber(value){
+   const v=String(value??'').trim();
+   const match=v.match(/^(?:(?:block|blk|plot|lot|τεμάχιο|τεμαχιο|οικόπεδο|οικοπεδο|τεμ\\.?|αρ\\.?)\\s*[-:#№]?\\s*)?0?(1[0-3]|[1-9])$/iu);
+   return match?Number(match[1]):null;
+  }
+  function findBlockField(features){
+   const properties=features.map(f=>f.properties||{});
+   const keys=[...new Set(properties.flatMap(p=>Object.keys(p)))];
+   const possible=keys.filter(key=>
+    !/^(?:objectid(?:_\\d+)?|fid|oid|globalid|shape(?:[._]|$)|area|length|latitude|longitude|id$)/i.test(key)
+    && /(block|blk|plot|parcel|tem|tmah|temax|te[mh]|τεμαχ|οικοπ|arith|number|num|name|onoma|ονομα|code|κωδικ)/iu.test(key)
+   ).map(key=>{
+    const values=properties.map(p=>asBlockNumber(p[key]));
+    const count=values.filter(Number.isInteger).length;
+    const distinct=new Set(values.filter(Number.isInteger)).size;
+    const keyScore=/(block|blk|plot|tem|tmah|temax|τεμαχ|οικοπ)/iu.test(key)?10:0;
+    return {key,count,distinct,score:count*3+distinct+keyScore};
+   }).filter(c=>c.count>=Math.max(1,features.length-1) && c.distinct>=Math.min(8,features.length));
+   possible.sort((a,b)=>b.score-a.score);
+   return possible[0]?.key||null;
+  }
+  const blockField=findBlockField(data.features);
+  let labeled=0;
   cyLayer=L.geoJSON(data,{style:{color:'#076ab5',weight:2,fillColor:'#5eb5e9',fillOpacity:.22},onEachFeature:(feature,layer)=>{
-   let p=feature.properties||{};let name=p.NAME||p.Name||p.name||'Κυπριακό τεμάχιο';
+   const p=feature.properties||{};
+   const block=blockField?asBlockNumber(p[blockField]):null;
+   const descriptiveName=p.NAME||p.Name||p.name||p.ENGLISHNAM||p.NAME_GR||'Κυπριακό τεμάχιο';
+   const name=block!==null?'Τεμάχιο '+block:String(descriptiveName);
+   if(block!==null){
+    layer.bindTooltip(String(block),{permanent:true,direction:'center',className:'cy-block-number',interactive:false});
+    labeled++;
+   }
    layer.bindPopup('<strong>'+escapeHtml(name)+'</strong>'+(p.COMPANY?'<div>Εταιρεία: '+escapeHtml(p.COMPANY)+'</div>':'')+'<div><small>Πηγή: Κυπριακό Κτηματολόγιο (ArcGIS 69). Οι άδειες ελέγχονται χωριστά.</small></div>');
   }});
-  cyStatus='Προβάλλονται '+data.features.length+' επίσημες γεωμετρίες του κυπριακού Κτηματολογίου. Πάτησε σε ένα τεμάχιο για πληροφορίες.';
+  cyStatus='Προβάλλονται '+data.features.length+' επίσημες γεωμετρίες του κυπριακού Κτηματολογίου. '+
+   (labeled?'Εμφανίζονται αριθμοί σε '+labeled+' τεμάχια. Πάτησε σε ένα για πληροφορίες.':
+   'Το επίσημο αρχείο δεν επέστρεψε αναγνωρίσιμο πεδίο αριθμού τεμαχίου· δεν χρησιμοποιούμε εσωτερικούς αριθμούς εγγραφών ως ετικέτες.');
   toggleCyLayer(current==='all'||current==='cy');
   if(current==='all'||current==='cy')status.textContent=cyStatus;
  }).catch(()=>{
