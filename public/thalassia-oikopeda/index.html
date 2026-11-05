@@ -186,14 +186,14 @@ main{padding:26px 0 30px}.section{padding:22px 0;scroll-margin-top:12px}.section
   // Αναγνωρίζουμε μόνο πεδία με όνομα που υποδηλώνει τεμάχιο/οικόπεδο.
   function asBlockNumber(value){
    const v=String(value??'').trim();
-   const match=v.match(/^(?:(?:block|blk|plot|lot|τεμάχιο|τεμαχιο|οικόπεδο|οικοπεδο|τεμ\\.?|αρ\\.?)\\s*[-:#№]?\\s*)?0?(1[0-3]|[1-9])$/iu);
+   const match=v.match(/^(?:(?:block|blk|plot|lot|τεμάχιο|τεμαχιο|οικόπεδο|οικοπεδο|τεμ\.?|αρ\.?)\s*[-:#№]?\s*)?0?(1[0-3]|[1-9])$/iu);
    return match?Number(match[1]):null;
   }
   function findBlockField(features){
    const properties=features.map(f=>f.properties||{});
    const keys=[...new Set(properties.flatMap(p=>Object.keys(p)))];
    const possible=keys.filter(key=>
-    !/^(?:objectid(?:_\\d+)?|fid|oid|globalid|shape(?:[._]|$)|area|length|latitude|longitude|id$)/i.test(key)
+    !/^(?:objectid(?:_\d+)?|fid|oid|globalid|shape(?:[._]|$)|area|length|latitude|longitude|id$)/i.test(key)
     && /(block|blk|plot|parcel|tem|tmah|temax|te[mh]|τεμαχ|οικοπ|arith|number|num|name|onoma|ονομα|code|κωδικ)/iu.test(key)
    ).map(key=>{
     const values=properties.map(p=>asBlockNumber(p[key]));
