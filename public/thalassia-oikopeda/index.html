@@ -194,7 +194,7 @@ main{padding:26px 0 30px}.section{padding:22px 0;scroll-margin-top:12px}.section
    const keys=[...new Set(properties.flatMap(p=>Object.keys(p)))];
    const possible=keys.filter(key=>
     !/^(?:objectid(?:_\d+)?|fid|oid|globalid|shape(?:[._]|$)|area|length|latitude|longitude|id$)/i.test(key)
-    && /(block|blk|plot|parcel|tem|tmah|temax|te[mh]|τεμαχ|οικοπ|arith|number|num|name|onoma|ονομα|code|κωδικ)/iu.test(key)
+    && /(block|blk|plot|parcel|tem|tmah|temax|te[mh]|τεμαχ|οικοπ|arith|number|num|name|nam|onoma|ονομα|code|κωδικ)/iu.test(key)
    ).map(key=>{
     const values=properties.map(p=>asBlockNumber(p[key]));
     const count=values.filter(Number.isInteger).length;
