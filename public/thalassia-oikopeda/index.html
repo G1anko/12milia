@@ -153,7 +153,17 @@ main{padding:26px 0 30px}.section{padding:22px 0;scroll-margin-top:12px}.section
   maxZoom:18,attribution:'© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>'
  }).addTo(map);
  map.fitBounds(options.all.bounds);
- L.control.scale({imperial:false}).addTo(map);
+ const cyAttribution='<a href="https://data.gov.cy/el/dataset/73" target="_blank" rel="noopener noreferrer">Κυπριακό Κτηματολόγιο — τεμάχια υδρογονανθράκων</a>';
+ function toggleCyLayer(visible){
+  if(!cyLayer) return;
+  if(visible && !map.hasLayer(cyLayer)){
+   cyLayer.addTo(map);
+   map.attributionControl.addAttribution(cyAttribution);
+  } else if(!visible && map.hasLayer(cyLayer)){
+   map.removeLayer(cyLayer);
+   map.attributionControl.removeAttribution(cyAttribution);
+  }
+ }
  function escapeHtml(value){return String(value??'').replace(/[&<>"']/g,s=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));}
  function choose(key){
   current=key;let o=options[key];
@@ -162,8 +172,7 @@ main{padding:26px 0 30px}.section{padding:22px 0;scroll-margin-top:12px}.section
   status.textContent= key==='all'||key==='cy'?cyStatus:o.status;
   source.textContent=o.link;source.href=o.url;
   map.flyToBounds(o.bounds,{padding:[10,10],duration:window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:0.65});
-  if(cyLayer && map.hasLayer(cyLayer)) map.removeLayer(cyLayer);
-  if(cyLayer && (key==='all'||key==='cy')) cyLayer.addTo(map);
+  toggleCyLayer(key==='all'||key==='cy');
  }
  buttons.forEach(b=>b.addEventListener('click',()=>choose(b.dataset.country)));
  const endpoint='https://eservices.dls.moi.gov.cy/arcgis/rest/services/National/Hydrography_Data_GR/MapServer/69/query';
@@ -175,7 +184,7 @@ main{padding:26px 0 30px}.section{padding:22px 0;scroll-margin-top:12px}.section
    layer.bindPopup('<strong>'+escapeHtml(name)+'</strong>'+(p.COMPANY?'<div>Εταιρεία: '+escapeHtml(p.COMPANY)+'</div>':'')+'<div><small>Πηγή: Κυπριακό Κτηματολόγιο (ArcGIS 69). Οι άδειες ελέγχονται χωριστά.</small></div>');
   }});
   cyStatus='Προβάλλονται '+data.features.length+' επίσημες γεωμετρίες του κυπριακού Κτηματολογίου. Πάτησε σε ένα τεμάχιο για πληροφορίες.';
-  if(current==='all'||current==='cy')cyLayer.addTo(map);
+  toggleCyLayer(current==='all'||current==='cy');
   if(current==='all'||current==='cy')status.textContent=cyStatus;
  }).catch(()=>{
   cyStatus='Δεν κατέστη δυνατή η ανάκτηση των πολυγώνων από την επίσημη υπηρεσία. Δες την πηγή από τον σύνδεσμο. Δεν εμφανίζουμε εναλλακτικά ανεπιβεβαίωτα όρια.';
