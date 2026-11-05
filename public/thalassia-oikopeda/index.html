@@ -184,26 +184,33 @@ main{padding:26px 0 30px}.section{padding:22px 0;scroll-margin-top:12px}.section
   if(data.type!=='FeatureCollection'||!Array.isArray(data.features)||!data.features.length)throw Error('Κενή απάντηση');
   // Ο αριθμός οικοπέδου ΔΕΝ ταυτίζεται απαραίτητα με το OBJECTID της βάσης.
   // Αναγνωρίζουμε μόνο πεδία με όνομα που υποδηλώνει τεμάχιο/οικόπεδο.
+  // Ανίχνευση του επίσημου αριθμού τεμαχίου από τιμές πεδίων (όχι OBJECTID/FID).
   function asBlockNumber(value){
-   const v=String(value??'').trim();
-   const match=v.match(/^(?:(?:block|blk|plot|lot|τεμάχιο|τεμαχιο|οικόπεδο|οικοπεδο|τεμ\.?|αρ\.?)\s*[-:#№]?\s*)?0?(1[0-3]|[1-9])$/iu);
-   return match?Number(match[1]):null;
+   if(value===null||value===undefined)return null;
+   const v=String(value).trim();
+   let m=v.match(/^0?(1[0-3]|[1-9])(?:\.0)?$/);
+   if(m)return Number(m[1]);
+   m=v.match(/^B(?:LOCK)?[\s._-]*0?(1[0-3]|[1-9])$/i);
+   if(m)return Number(m[1]);
+   m=v.match(/(?:^|[\s._:-])(?:block|blk|plot|parcel|lot|τεμάχιο|τεμαχιο|τεμ\.?|οικόπεδο|οικοπεδο|αρ(?:ιθμός|ιθμος)?\.?|number|no\.?|num\.?)\s*(?:no\.?|nr\.?|number|αριθ\.?)?\s*[-:#№]?\s*0?(1[0-3]|[1-9])\s*$/iu);
+   return m?Number(m[1]):null;
   }
   function findBlockField(features){
    const properties=features.map(f=>f.properties||{});
    const keys=[...new Set(properties.flatMap(p=>Object.keys(p)))];
-   const possible=keys.filter(key=>
-    !/^(?:objectid(?:_\d+)?|fid|oid|globalid|shape(?:[._]|$)|area|length|latitude|longitude|id$)/i.test(key)
-    && /(block|blk|plot|parcel|tem|tmah|temax|te[mh]|τεμαχ|οικοπ|arith|number|num|name|nam|onoma|ονομα|code|κωδικ)/iu.test(key)
-   ).map(key=>{
+   const isDatabaseField=key=>/(?:^|[._])(?:objectid(?:_\d+)?|fid|oid|globalid|shape|shape_length|shape_area|starea|stlength|rowid|gid)(?:$|[._])/i.test(key)
+    || /^(?:id|fid|oid|uid|gid|area|length|latitude|longitude)$/i.test(key);
+   const ranked=keys.filter(k=>!isDatabaseField(k)).map(key=>{
     const values=properties.map(p=>asBlockNumber(p[key]));
-    const count=values.filter(Number.isInteger).length;
-    const distinct=new Set(values.filter(Number.isInteger)).size;
-    const keyScore=/(block|blk|plot|tem|tmah|temax|τεμαχ|οικοπ)/iu.test(key)?10:0;
-    return {key,count,distinct,score:count*3+distinct+keyScore};
-   }).filter(c=>c.count>=Math.max(1,features.length-1) && c.distinct>=Math.min(8,features.length));
-   possible.sort((a,b)=>b.score-a.score);
-   return possible[0]?.key||null;
+    const valid=values.filter(Number.isInteger);
+    const distinct=new Set(valid).size;
+    const descriptive=/(block|blk|plot|parcel|tem|tmah|temax|τεμαχ|οικοπ|arith|number|num|no$|name|nam|ονομ|κωδικ|code)/iu.test(key);
+    const exact=/(block|blk|plot|tem|tmah|temax|τεμαχ|οικοπ)/iu.test(key);
+    const contiguous=new Set(valid).size===13&&Array.from({length:13},(_,i)=>i+1).every(v=>valid.includes(v));
+    return {key,count:valid.length,distinct,score:valid.length*10+distinct+(exact?30:descriptive?10:0)+(contiguous?25:0)};
+   }).filter(c=>c.count>=Math.max(2,Math.ceil(features.length*.6))&&c.distinct>=Math.ceil(c.count*.7));
+   ranked.sort((a,b)=>b.score-a.score);
+   return ranked[0]?.key||null;
   }
   const blockField=findBlockField(data.features);
   let labeled=0;
@@ -220,7 +227,7 @@ main{padding:26px 0 30px}.section{padding:22px 0;scroll-margin-top:12px}.section
   }});
   cyStatus='Προβάλλονται '+data.features.length+' επίσημες γεωμετρίες του κυπριακού Κτηματολογίου. '+
    (labeled?'Εμφανίζονται αριθμοί σε '+labeled+' τεμάχια. Πάτησε σε ένα για πληροφορίες.':
-   'Το επίσημο αρχείο δεν επέστρεψε αναγνωρίσιμο πεδίο αριθμού τεμαχίου· δεν χρησιμοποιούμε εσωτερικούς αριθμούς εγγραφών ως ετικέτες.');
+   'Δεν βρέθηκε ασφαλές πεδίο αρίθμησης. Πεδία που επέστρεψε η υπηρεσία: '+Object.keys(data.features[0]?.properties||{}).join(', ')+'.');
   toggleCyLayer(current==='all'||current==='cy');
   if(current==='all'||current==='cy')status.textContent=cyStatus;
  }).catch(()=>{
