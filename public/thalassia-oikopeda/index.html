@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta name="theme-color" content="#082b4d"/>
+<meta name="description" content="Θαλάσσια οικόπεδα υδρογονανθράκων στην Ανατολική Μεσόγειο: Ελλάδα, Κύπρος, Αίγυπτος και Λιβύη. Διαδραστικός χάρτης, επίσημες πηγές, παραχωρήσεις και διαφορές από την ΑΟΖ."/>
+<title>Θαλάσσια οικόπεδα &amp; υδρογονάνθρακες | 12milia.top</title>
+<link rel="canonical" href="https://12milia.top/thalassia-oikopeda/"/>
+<meta property="og:type" content="article"/>
+<meta property="og:title" content="Θαλάσσια οικόπεδα & υδρογονάνθρακες | 12milia.top"/>
+<meta property="og:description" content="Επίσημοι χάρτες παραχωρήσεων στην Ανατολική Μεσόγειο και απλές εξηγήσεις για τα οικόπεδα έρευνας."/>
+<link rel="stylesheet" href="../assets/site-shell.css?v=1"/>
+<link rel="stylesheet" crossorigin="anonymous" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="/>
+<style>
+:root{--deep:#061b30;--navy:#082b4d;--blue:#0a6793;--paper:#f4f8fb;--ink:#173047;--muted:#506a80;--border:#d9e7ef;--gold:#e8b569}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.72 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:#076294}a:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{width:min(1100px,calc(100% - 36px));margin-inline:auto}
+.topbar{background:var(--deep);color:white}.nav{display:flex;justify-content:space-between;align-items:center;min-height:72px;flex-wrap:wrap;gap:14px}.brand{text-decoration:none;color:white;font-weight:850;font-size:1.25rem}.brand span{color:#a5d9ed}.navlinks{display:flex;flex-wrap:wrap;gap:9px 17px}.navlinks a{font-size:.88rem;text-decoration:none;color:#edf7fb}.navlinks a:hover{text-decoration:underline}
+.cyprus-strip{background:#e6f2f8;border-bottom:1px solid #d0e4ee}.cyprus-strip .wrap{padding:7px 0;display:flex;justify-content:center}
+.hero{background:linear-gradient(120deg,#061b30,#075b87 75%,#117e9c);color:white;padding:66px 0 75px}.eyebrow{font-size:.76rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#b7e8f7}
+.hero h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.16;max-width:930px;letter-spacing:-.025em;margin:14px 0 16px}.hero p{max-width:850px;color:#ddf1f7;font-size:1.08rem;margin:0}.hero a{color:#fff}
+main{padding:30px 0 55px}.section{padding:24px 0;scroll-margin-top:12px}.section h2{font-size:clamp(1.55rem,3vw,2rem);line-height:1.2;color:var(--navy);margin:0 0 12px}.section h3{color:var(--navy);line-height:1.26;margin:0 0 11px}.intro{color:var(--muted);max-width:900px;margin:0 0 22px}
+.card{border:1px solid var(--border);border-radius:16px;background:#fff;padding:24px;box-shadow:0 6px 24px rgba(8,43,77,.035)}
+.note{background:#e8f3f9;border-left:4px solid #1985b2;padding:16px 19px;border-radius:0 12px 12px 0;font-size:.96rem;margin:16px 0}
+.map-shell{display:grid;grid-template-columns:minmax(0,1fr) 310px;border:1px solid #d4e4ec;border-radius:18px;background:white;overflow:hidden;box-shadow:0 12px 30px rgba(14,47,75,.06)}
+.map-main{min-width:0}.map-toolbar{display:flex;gap:8px;flex-wrap:wrap;padding:16px;background:#fff;border-bottom:1px solid var(--border)}
+.country-btn{border:1px solid #cbdce7;background:#f7fbfe;color:#164562;padding:9px 13px;border-radius:9px;cursor:pointer;font-weight:750;font-size:.91rem}.country-btn:hover{background:#e9f4fc}.country-btn[aria-pressed="true"]{background:#075c88;color:white;border-color:#075c88}
+#blocks-map{height:525px;background:#e4eef4}.map-credit{font-size:.79rem;color:#5c7283;padding:10px 16px;border-top:1px solid var(--border)}
+.map-aside{background:#f7fbfe;border-left:1px solid var(--border);padding:21px;display:flex;flex-direction:column;gap:15px}.map-aside h3{font-size:1.28rem;margin:0}.map-aside p{margin:0;font-size:.93rem}
+.map-aside .status{border-radius:10px;background:#e6f2f9;padding:12px;color:#16455d;font-size:.87rem}
+.pill{display:inline-flex;border:1px solid #c6d9e5;border-radius:100px;padding:3px 10px;font-size:.75rem;font-weight:750;color:#355a6f;background:white;width:max-content}
+.source-link{display:inline-block;font-weight:750}
+.country-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.country-grid article{scroll-margin-top:15px}.country-grid p{margin:0 0 11px}.country-grid ul{margin:6px 0 14px;padding-left:20px}
+.source-list{margin:0;padding-left:20px}.source-list li{margin-bottom:11px}
+.guide-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.guide-grid p{margin:0}
+.small{font-size:.88rem;color:var(--muted)}.date{font-size:.86rem;color:#4c697d}
+.footnote{color:#516d80;font-size:.87rem;margin-top:13px}
+.footer{background:#061b30;color:#d6e9f2;padding:30px 0}.footer a{color:#bde8fa}
+@media(max-width:850px){.map-shell{grid-template-columns:1fr}.map-aside{border-left:0;border-top:1px solid var(--border)}#blocks-map{height:450px}.guide-grid{grid-template-columns:1fr}}
+@media(max-width:620px){.hero{padding:42px 0 50px}.country-grid{grid-template-columns:1fr}.card{padding:19px}.map-toolbar{gap:6px}.country-btn{font-size:.85rem;padding:8px 9px}#blocks-map{height:390px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<header class="topbar" id="site-header"></header>
+<div class="cyprus-strip" id="site-cyprus"></div>
+<section class="hero"><div class="wrap"><div class="eyebrow">Ανατολική Μεσόγειος · Χάρτες και τεκμηρίωση</div>
+<h1>Θαλάσσια οικόπεδα &amp; υδρογονάνθρακες</h1>
+<p>Πού βρίσκονται οι περιοχές έρευνας και εκμετάλλευσης στην Ελλάδα, την Κύπρο, την Αίγυπτο και τη Λιβύη; Ποιες έχουν παραχωρηθεί και τι σημαίνει πραγματικά μια έρευνα ή ανακάλυψη;</p></div></section>
+<main class="wrap">
+<section class="section" id="eisagogi" aria-labelledby="intro-title">
+<h2 id="intro-title">Τα οικόπεδα δεν είναι θαλάσσια σύνορα</h2>
+<p>Ένα <strong>θαλάσσιο οικόπεδο</strong> είναι οριοθετημένη περιοχή για την οποία ένα κράτος μπορεί να προκηρύξει διαγωνισμό ή να παραχωρήσει δικαιώματα έρευνας και, υπό προϋποθέσεις, εκμετάλλευσης υδρογονανθράκων. <strong>Δεν είναι το ίδιο με την αιγιαλίτιδα ζώνη των 12 ν.μ., ούτε αποτελεί από μόνο του οριοθέτηση ΑΟΖ ή υφαλοκρηπίδας.</strong></p>
+<div class="note">Στον χάρτη ξεχωρίζουμε τις γεωμετρίες που προέρχονται από επίσημη γεωχωρική υπηρεσία από τις περιοχές που παρουσιάζονται μόνο μέσω συνδέσμων στους επίσημους εθνικούς χάρτες. Δεν σχεδιάζουμε προσεγγιστικά «όρια οικοπέδων».</div>
+</section>
+<section class="section" id="chartis" aria-labelledby="map-title">
+<h2 id="map-title">Διαδραστικός χάρτης</h2>
+<p class="intro">Επίλεξε χώρα για να μεταφερθείς στην αντίστοιχη περιοχή. Για την Κύπρο γίνεται φόρτωση του επίσημου επιπέδου «Τεμάχια Εξερεύνησης Υδρογονανθράκων» από το Τμήμα Κτηματολογίου και Χωρομετρίας. Για τις υπόλοιπες χώρες παραπέμπουμε στους επίσημους χάρτες, μέχρι να επαληθεύσουμε και να ενσωματώσουμε τις γεωμετρίες τους.</p>
+<div class="map-shell">
+<div class="map-main">
+<div class="map-toolbar" role="group" aria-label="Επιλογή χώρας">
+<button type="button" class="country-btn" data-country="all" aria-pressed="true">Όλη η περιοχή</button>
+<button type="button" class="country-btn" data-country="gr" aria-pressed="false">Ελλάδα</button>
+<button type="button" class="country-btn" data-country="cy" aria-pressed="false">Κύπρος</button>
+<button type="button" class="country-btn" data-country="eg" aria-pressed="false">Αίγυπτος</button>
+<button type="button" class="country-btn" data-country="ly" aria-pressed="false">Λιβύη</button>
+</div>
+<div id="blocks-map" role="region" aria-label="Χάρτης Ανατολικής Μεσογείου με επίσημα κυπριακά θαλάσσια τεμάχια"></div>
+<div class="map-credit">Υπόβαθρο: © OpenStreetMap contributors · Επίπεδο Κύπρου: Τμήμα Κτηματολογίου και Χωρομετρίας, Κυπριακή Δημοκρατία.</div>
+</div>
+<aside class="map-aside" aria-live="polite">
+<span class="pill" id="country-tag">Επίσημες πηγές</span>
+<h3 id="country-title">Ανατολική Μεσόγειος</h3>
+<p id="country-description">Επίλεξε χώρα στον χάρτη. Οι περιοχές παραχώρησης δεν πρέπει να συγχέονται με ΑΟΖ και συμφωνημένες θαλάσσιες οριοθετήσεις.</p>
+<p class="status" id="map-status">Φόρτωση επίσημων κυπριακών γεωγραφικών δεδομένων…</p>
+<a class="source-link" id="country-source" href="https://herema.gr/el/upstream-oil-gas-exploration/" target="_blank" rel="noopener noreferrer">Επίσημος χάρτης Ελλάδας ↗</a>
+</aside>
+</div>
+<p class="footnote">Σημείωση: η επίσημη κυπριακή γεωχωρική υπηρεσία απεικονίζει την κατανομή των τεμαχίων. Η κατάσταση των αδειών μπορεί να αλλάζει και ελέγχεται χωριστά από το αρμόδιο υπουργείο. Ενδεχόμενη διακοπή λειτουργίας της υπηρεσίας δεν επηρεάζει τις υπόλοιπες πληροφορίες της σελίδας.</p>
+</section>
+<section class="section" id="chores"><h2>Οι τέσσερις χώρες</h2>
+<div class="country-grid">
+<article class="card" id="ellada"><h3>Ελλάδα</h3><span class="pill">Παραχωρήσεις · επίσημος χάρτης</span>
+<p>Η ΕΔΕΥΕΠ αναφέρει <strong>11 ενεργές παραχωρήσεις</strong> έρευνας ή παραγωγής συνολικά: εννέα σε ερευνητικό στάδιο, μία σε ανάπτυξη (Κατάκολο) και μία σε παραγωγή (Πρίνος).</p>
+<p>Οι εννέα ερευνητικές παραχωρήσεις περιλαμβάνουν πέντε περιοχές στο Ιόνιο και τέσσερις γύρω από την Κρήτη: Δυτικά Κρήτης, Νοτιοδυτικά Κρήτης, Νότια Κρήτης 1 και Νότια Κρήτης 2.</p>
+<p class="small">Οι παραχωρήσεις Νότια Κρήτης 1, Νότια Κρήτης 2, Νότια Πελοποννήσου και A2 αποτέλεσαν αντικείμενο συμβάσεων που υπεγράφησαν τον Φεβρουάριο 2026.</p>
+<a href="https://herema.gr/el/upstream-oil-gas-exploration/" target="_blank" rel="noopener noreferrer">ΕΔΕΥΕΠ — διαδραστικός χάρτης ↗</a></article>
+<article class="card" id="kypros"><h3>Κύπρος</h3><span class="pill">Επίσημα πολύγωνα στον χάρτη</span>
+<p>Τα <strong>13 αριθμημένα τεμάχια</strong> αποτελούν γεωγραφική κατανομή περιοχών έρευνας, όχι 13 ταυτόχρονες ενεργές άδειες.</p>
+<p>Στα αδειοδοτημένα τεμάχια περιλαμβάνονται, μεταξύ άλλων, τα 5, 6, 7, 8, 10 και 11. Στο τεμάχιο 12 βρίσκεται το ανακαλυφθέν κοίτασμα <strong>«Αφροδίτη»</strong>, για το οποίο υπάρχει άδεια εκμετάλλευσης.</p>
+<a href="https://data.gov.cy/el/dataset/73" target="_blank" rel="noopener noreferrer">Κυπριακό Κτηματολόγιο — γεωχωρικά δεδομένα ↗</a></article>
+<article class="card" id="aigyptos"><h3>Αίγυπτος</h3><span class="pill">Κυβερνητικός διαδραστικός χάρτης</span>
+<p>Η Αίγυπτος διαθέτει περιοχές έρευνας, ανάπτυξης και παραγωγής φυσικού αερίου στην Ανατολική Μεσόγειο. Οι περιοχές αυτές εμφανίζονται στον επίσημο χάρτη παραχωρήσεων του <strong>Egypt Upstream Gateway</strong>.</p>
+<p>Δεν ενσωματώνουμε προς το παρόν πολύγωνα από μη επαληθευμένες ή παλαιές αποτυπώσεις.</p>
+<a href="https://eug.petroleum.gov.eg/dp/jsp/new_live/pre_concession.jsp" target="_blank" rel="noopener noreferrer">Egypt Upstream Gateway — Concession Map ↗</a></article>
+<article class="card" id="livyi"><h3>Λιβύη</h3><span class="pill">Διαγωνισμός και νέες παραχωρήσεις</span>
+<p>Η κρατική National Oil Corporation είχε προσφέρει στον διαγωνισμό του 2025 <strong>22 περιοχές</strong>, από τις οποίες 11 θαλάσσιες. Αυτό δεν σημαίνει ότι παραχωρήθηκαν όλες.</p>
+<p>Στις <strong>11 Φεβρουαρίου 2026</strong> ανακοινώθηκαν αποτελέσματα του διαγωνισμού. Μεταξύ των νέων θαλάσσιων παραχωρήσεων περιλαμβάνεται η <strong>O1</strong> (Eni–QatarEnergy). Χρειάζεται χωριστή τεκμηρίωση για την ακριβή γεωμετρία κάθε νέας άδειας.</p>
+<a href="https://www.lnoc-us.com/" target="_blank" rel="noopener noreferrer">National Oil Corporation — ανακοινώσεις ↗</a></article>
+</div></section>
+<section class="section" id="oroi"><h2>Από το οικόπεδο στο κοίτασμα</h2>
+<div class="guide-grid">
+<div class="card"><h3>1 · Παραχώρηση</h3><p>Ένα κράτος καθορίζει περιοχή, οργανώνει διαγωνισμό ή παραχωρεί δικαιώματα έρευνας. Η παραχώρηση δεν αποδεικνύει ότι υπάρχει πετρέλαιο ή φυσικό αέριο.</p></div>
+<div class="card"><h3>2 · Έρευνα και γεώτρηση</h3><p>Σεισμικές έρευνες και γεωλογική αξιολόγηση οδηγούν ενδεχομένως σε ερευνητική γεώτρηση. Ακόμη και μια ανακάλυψη δεν σημαίνει αυτομάτως εμπορική αξιοποίηση.</p></div>
+<div class="card"><h3>3 · Ανάπτυξη και παραγωγή</h3><p>Απαιτούνται επιβεβαίωση του κοιτάσματος, τεχνικοοικονομική αξιολόγηση, άδειες και υποδομές. Μόνο τότε μπορεί να αρχίσει παραγωγή.</p></div>
+</div>
+</section>
+<section class="section" id="nomiko"><div class="card">
+<h2>Πώς σχετίζονται με την ΑΟΖ και την υφαλοκρηπίδα;</h2>
+<p>Το Δίκαιο της Θάλασσας διακρίνει τα χωρικά ύδατα από τις ζώνες στις οποίες το παράκτιο κράτος ασκεί <strong>κυριαρχικά δικαιώματα</strong> για την έρευνα και εκμετάλλευση φυσικών πόρων. Ειδικά τα δικαιώματα στην υφαλοκρηπίδα υφίστανται αυτοδικαίως, χωρίς να απαιτείται προηγούμενη ανακήρυξη (UNCLOS, άρθρο 77).</p>
+<p>Σε περιοχές με αντικείμενες ή παρακείμενες ακτές μπορεί να υπάρχουν διαφορετικές θέσεις για την οριοθέτηση. Η απεικόνιση μιας κρατικής παραχώρησης <strong>δεν επιλύει από μόνη της μια διεθνή διαφορά</strong>. Ιδιαίτερα νότια της Κρήτης, πρέπει να διακρίνουμε τον ελληνικό χάρτη παραχωρήσεων από τις διαφορετικές θέσεις που προβάλλονται από τη Λιβύη.</p>
+<p><a href="../basikes-ennoies/#aoz">Δες και τον εικονογραφημένο οδηγό για την ΑΟΖ</a> · <a href="https://www.un.org/Depts/los/convention_agreements/texts/unclos/part6.htm" rel="noopener noreferrer" target="_blank">UNCLOS — Υφαλοκρηπίδα (Μέρος VI) ↗</a></p>
+</div></section>
+<section class="section" id="sources"><h2>Πηγές και ενημέρωση</h2><p class="intro">Βάση της παρουσίασης είναι επίσημοι δημόσιοι φορείς. Οι παραχωρήσεις, τα δικαιώματα των εταιρειών και τα στάδια έργων μεταβάλλονται με τον χρόνο.</p>
+<ol class="source-list">
+<li><a href="https://herema.gr/el/upstream-oil-gas-exploration/" target="_blank" rel="noopener noreferrer">ΕΔΕΥΕΠ — Ενεργές συμβάσεις και διαδραστικός χάρτης</a> (Ελλάδα).</li>
+<li><a href="https://herema.gr/presentation-of-the-lease-agreements-between-the-hellenic-republic-and-the-chevron-helleniq-energy-jv/" target="_blank" rel="noopener noreferrer">ΕΔΕΥΕΠ — Συμβάσεις Chevron–HELLENiQ ENERGY, 17/02/2026</a>.</li>
+<li><a href="https://data.gov.cy/el/dataset/73" target="_blank" rel="noopener noreferrer">Κυπριακό Τμήμα Κτηματολογίου — Τεμάχια Εξερεύνησης Υδρογονανθράκων</a> (ανοικτά δεδομένα, CC BY 4.0).</li>
+<li><a href="https://eservices.dls.moi.gov.cy/arcgis/rest/services/National/Hydrography_Data_GR/MapServer/69" target="_blank" rel="noopener noreferrer">Κύπρος — επίσημο επίπεδο ArcGIS, ID 69</a> (γεωμετρίες).</li>
+<li><a href="https://hydrocarbons.gov.cy/" target="_blank" rel="noopener noreferrer">Κυπριακή Δημοκρατία — Υπηρεσία Υδρογονανθράκων</a> (αδειοδοτήσεις).</li>
+<li><a href="https://eug.petroleum.gov.eg/dp/jsp/new_live/pre_concession.jsp" target="_blank" rel="noopener noreferrer">Υπουργείο Πετρελαίου Αιγύπτου — Egypt Upstream Gateway</a> (χάρτης).</li>
+<li><a href="https://lana.gov.ly/post.php?id=330030&amp;lang=en" target="_blank" rel="noopener noreferrer">Λιβυκό Πρακτορείο Ειδήσεων — NOC, διαγωνισμός 2025</a>.</li>
+<li><a href="https://www.lnoc-us.com/" target="_blank" rel="noopener noreferrer">National Oil Corporation — ανακοίνωση αποτελεσμάτων 11/02/2026</a>.</li>
+<li><a href="https://www.eni.com/en-IT/media/press-release/2026/02/eni-awarded-a-new-offshore-exploration-license-in-libya.html" target="_blank" rel="noopener noreferrer">Eni — παραχώρηση O1, 11/02/2026</a>.</li>
+<li><a href="https://www.un.org/Depts/los/convention_agreements/texts/unclos/part6.htm" target="_blank" rel="noopener noreferrer">ΟΗΕ — UNCLOS, Μέρος VI (άρθρο 77)</a>.</li>
+</ol>
+<p class="date">Τελευταίος έλεγχος πηγών: 5 Νοεμβρίου 2026. Οι απεικονίσεις δεν αποτελούν επίσημη οριοθέτηση θαλάσσιων ζωνών.</p>
+</section></main>
+<footer class="footer" id="site-footer"></footer><div class="privacy-overlay" id="privacy-overlay" hidden></div>
+<script crossorigin="anonymous" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+(function(){
+ 'use strict';
+ const byId = id => document.getElementById(id);
+ const buttons = [...document.querySelectorAll('[data-country]')];
+ const title = byId('country-title'), description = byId('country-description'), status = byId('map-status'), source = byId('country-source'), tag = byId('country-tag');
+ const options = {
+  all:{name:'Ανατολική Μεσόγειος',tag:'Συγκριτική προβολή',text:'Ο χάρτης δείχνει την περιοχή συνολικά. Τα επαληθευμένα κυπριακά τεμάχια μπορούν να εμφανίζονται ως επίσημη θεματική επίστρωση.',status:'Τα πολύγωνα Κύπρου προέρχονται από επίσημη γεωχωρική υπηρεσία. Τα άλλα τρία κράτη παραπέμπουν προς το παρόν σε επίσημους χάρτες.',url:'https://herema.gr/el/upstream-oil-gas-exploration/',link:'Επίσημος χάρτης Ελλάδας ↗',bounds:[[29.7,14.5],[41.6,36.7]]},
+  gr:{name:'Ελλάδα',tag:'ΕΔΕΥΕΠ',text:'Ενεργές παραχωρήσεις στο Ιόνιο, νότια της Πελοποννήσου και γύρω από την Κρήτη. Για τα ακριβή όρια ακολούθησε τον επίσημο χάρτη ΕΔΕΥΕΠ.',status:'Δεν εμφανίζονται εδώ πολύγωνα Ελλάδας, επειδή δεν έχει ενσωματωθεί επαληθευμένο σύγχρονο γεωχωρικό αρχείο.',url:'https://herema.gr/el/upstream-oil-gas-exploration/',link:'Δες τις ελληνικές παραχωρήσεις ↗',bounds:[[33.8,18],[40.7,27]]},
+  cy:{name:'Κύπρος',tag:'Κυπριακό Κτηματολόγιο',text:'Τα επίσημα γεωγραφικά πολύγωνα των κυπριακών τεμαχίων προέρχονται από την υπηρεσία ArcGIS του Τμήματος Κτηματολογίου.',status:'Φόρτωση γεωχωρικών δεδομένων Κύπρου…',url:'https://data.gov.cy/el/dataset/73',link:'Δεδομένα Κυπριακού Κτηματολογίου ↗',bounds:[[32.9,30],[36.1,36.4]]},
+  eg:{name:'Αίγυπτος',tag:'Egypt Upstream Gateway',text:'Το Υπουργείο Πετρελαίου παρουσιάζει περιοχές εξερεύνησης και ανάπτυξης σε κυβερνητικό διαδραστικό χάρτη.',status:'Δεν σχεδιάζουμε αιγυπτιακά οικόπεδα χωρίς επαληθευμένα πολυγωνικά δεδομένα. Άνοιξε τον επίσημο χάρτη.',url:'https://eug.petroleum.gov.eg/dp/jsp/new_live/pre_concession.jsp',link:'Επίσημος χάρτης Αιγύπτου ↗',bounds:[[30.2,24],[33.5,34.5]]},
+  ly:{name:'Λιβύη',tag:'National Oil Corporation',text:'Ο διαγωνισμός του 2025 και οι παραχωρήσεις που ανακοινώθηκαν το 2026 είναι διαφορετικά στάδια· δεν είναι όλες οι προκηρυγμένες περιοχές ενεργές άδειες.',status:'Δεν σχεδιάζουμε λιβυκά οικόπεδα χωρίς επαληθευμένα πολύγωνα και σαφή κατάσταση ανά παραχώρηση.',url:'https://www.lnoc-us.com/',link:'Επίσημες ανακοινώσεις NOC ↗',bounds:[[30,9],[35,25]]}
+ };
+ let map, cyLayer = null, cyStatus='Φόρτωση επίσημων κυπριακών πολυγώνων…', current='all';
+ if (!window.L){status.textContent='Ο χάρτης δεν φορτώθηκε. Χρησιμοποίησε τους επίσημους συνδέσμους.';return}
+ map=L.map('blocks-map',{preferCanvas:true,scrollWheelZoom:false});
+ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'© OpenStreetMap contributors'}).addTo(map);
+ map.fitBounds(options.all.bounds);
+ L.control.scale({imperial:false}).addTo(map);
+ function escapeHtml(value){return String(value??'').replace(/[&<>"']/g,s=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s]));}
+ function choose(key){
+  current=key;let o=options[key];
+  buttons.forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.country===key)));
+  title.textContent=o.name;tag.textContent=o.tag;description.textContent=o.text;
+  status.textContent= key==='all'||key==='cy'?cyStatus:o.status;
+  source.textContent=o.link;source.href=o.url;
+  map.flyToBounds(o.bounds,{padding:[10,10],duration:window.matchMedia('(prefers-reduced-motion: reduce)').matches?0:0.65});
+  if(cyLayer && map.hasLayer(cyLayer)) map.removeLayer(cyLayer);
+  if(cyLayer && (key==='all'||key==='cy')) cyLayer.addTo(map);
+ }
+ buttons.forEach(b=>b.addEventListener('click',()=>choose(b.dataset.country)));
+ const endpoint='https://eservices.dls.moi.gov.cy/arcgis/rest/services/National/Hydrography_Data_GR/MapServer/69/query';
+ const params=new URLSearchParams({where:'1=1',outFields:'*',returnGeometry:'true',outSR:'4326',f:'geojson'});
+ fetch(endpoint+'?'+params,{mode:'cors'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json()}).then(data=>{
+  if(data.type!=='FeatureCollection'||!Array.isArray(data.features)||!data.features.length)throw Error('Κενή απάντηση');
+  cyLayer=L.geoJSON(data,{style:{color:'#076ab5',weight:2,fillColor:'#5eb5e9',fillOpacity:.22},onEachFeature:(feature,layer)=>{
+   let p=feature.properties||{};let name=p.NAME||p.Name||p.name||'Κυπριακό τεμάχιο';
+   layer.bindPopup('<strong>'+escapeHtml(name)+'</strong>'+(p.COMPANY?'<div>Εταιρεία: '+escapeHtml(p.COMPANY)+'</div>':'')+'<div><small>Πηγή: Κυπριακό Κτηματολόγιο (ArcGIS 69). Οι άδειες ελέγχονται χωριστά.</small></div>');
+  }});
+  cyStatus='Προβάλλονται '+data.features.length+' επίσημες γεωμετρίες του κυπριακού Κτηματολογίου. Πάτησε σε ένα τεμάχιο για πληροφορίες.';
+  if(current==='all'||current==='cy')cyLayer.addTo(map);
+  if(current==='all'||current==='cy')status.textContent=cyStatus;
+ }).catch(()=>{
+  cyStatus='Δεν κατέστη δυνατή η ανάκτηση των πολυγώνων από την επίσημη υπηρεσία. Δες την πηγή από τον σύνδεσμο. Δεν εμφανίζουμε εναλλακτικά ανεπιβεβαίωτα όρια.';
+  if(current==='all'||current==='cy')status.textContent=cyStatus;
+ });
+})();
+</script>
+<script src="../assets/site-shell.js?v=1"></script>
+<script src="../assets/privacy.js?v=44"></script>
+</body>
+</html>
