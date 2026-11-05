@@ -4,7 +4,8 @@
   const pages = [
     ['/', 'Αρχική'],
     ['/basikes-ennoies/', 'Βασικές έννοιες'],
-    ['/nisia-kai-aoz/', 'Ίμια και Καστελλόριζο']
+    ['/nisia-kai-aoz/', 'Ίμια και Καστελλόριζο'],
+    ['/thalassia-oikopeda/', 'Θαλάσσια οικόπεδα']
   ];
   const normalize = text => String(text || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase('el').replace(/ς/g, 'σ');
   const makeIds = doc => {
