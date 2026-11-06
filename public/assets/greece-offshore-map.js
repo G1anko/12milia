@@ -1,64 +1,57 @@
-/* Leaflet display for Greek offshore concession cells from the 2025 official Gazette.
-   Only FULL 5'×5' squares are shaded; partial starred boundary cells are NOT filled. */
+/* Greek offshore concessions on the shared Leaflet map.
+   Draws ONE unified polygon per concession from the official WGS84 vertices
+   published in the Official Journal of the EU, C/2025/3335 (12.06.2025).
+   No arbitrary hand-drawn borders or visible 5' x 5' grid cells. */
 (function(){
  'use strict';
  window.createGreekOffshoreOverlay=function(map,getCountry){
-  const data=window.GreekOffshore2025;
-  if(!window.L||!data||!data.complete||!data.complete.features.length){
-   return {toggle:function(){},status:'Αδυναμία φόρτωσης του ελληνικού επιπέδου. Δες την επίσημη ΕΔΕΥΕΠ.'};
+  const data=window.GreekOffshoreOfficial;
+  if(!window.L||!data||!data.features||data.features.length!==4){
+   return {toggle:function(){},status:'Δεν φορτώθηκαν οι επίσημες ελληνικές κορυφές WGS84. Δες την ΕΔΕΥΕΠ.'};
   }
-  const attribution='<a href="https://herema.gr/tenders/" target="_blank" rel="noopener noreferrer">Ελλάδα — ΦΕΚ Β΄ 2104/2025, πλήρη τετράγωνα 5′</a>';
-  const blocks=L.geoJSON(data.complete,{
-   style:{color:'#ba5e29',weight:.8,opacity:.75,fillColor:'#f6a253',fillOpacity:.32},
+  const attribution='<a href="https://eur-lex.europa.eu/eli/C/2025/3335/oj/eng" target="_blank" rel="noopener noreferrer">Ελλάδα — επίσημα όρια WGS84, ΕΕ C/2025/3335</a>';
+  const blocks=L.geoJSON(data,{
+   style:{color:'#bf257d',weight:2,opacity:.92,fillColor:'#d92787',fillOpacity:.31},
    onEachFeature:function(feature,layer){
     const p=feature.properties;
-    const popup='<strong>'+p.name+'</strong><div>Πλήρες τετράγωνο 5′ × 5′: '+p.grid+'</div>'+
-     '<div>Έρευνα: '+p.operator+'</div>'+
-     '<p style="font-size:.85rem">Επίσημο πλήρες τετράγωνο, όχι το συνολικό εξωτερικό περίγραμμα της παραχώρησης.</p>'+
-     '<a href="'+p.source+'" target="_blank" rel="noopener noreferrer">Πίνακας ΦΕΚ ↗</a>';
+    const popup='<strong>'+p.name+'</strong>'+
+     '<div>Δημοσιευμένο εμβαδόν: '+p.area.toLocaleString('el-GR')+' τ.χλμ.</div>'+
+     '<div>'+p.operator+'</div>'+
+     '<p style="font-size:.85rem">Το περίγραμμα προκύπτει από τις δημοσιευμένες κορυφές WGS84, ΕΕ C/2025/3335· δεν αποτελεί οριοθέτηση ΑΟΖ.</p>'+
+     '<a href="'+p.source+'" target="_blank" rel="noopener noreferrer">Επίσημες συντεταγμένες ↗</a>';
     layer.bindPopup(popup);
    }
   });
-  const shortNames={a2:'Α2',pelop:'Ν. Πελοπόννησος',crete1:'Ν. Κρήτη 1',crete2:'Ν. Κρήτη 2'};
-  // Μετατόπιση μόνο των ΕΤΙΚΕΤΩΝ, μέσα στην περιοχή, για αναγνωσιμότητα σε κινητό.
-  const labelPosition=plan=>{
-   if(plan.key==='crete1')return [plan.center[0]+.15,plan.center[1]-.06];
-   if(plan.key==='crete2')return [plan.center[0]-.16,plan.center[1]+.06];
-   return plan.center;
+  const labelPositions={
+   a2:[36.72,21.18],pelop:[35.94,22.34],
+   crete1:[34.08,24.18],crete2:[34.05,25.60]
   };
-  const names=L.layerGroup(data.plans.map(plan=>
-   L.marker(labelPosition(plan),{
-    icon:L.divIcon({
-     className:'gr-block-pin',html:shortNames[plan.key]||plan.name,
-     iconSize:[plan.key==='pelop'?114:82,28],iconAnchor:[plan.key==='pelop'?57:41,14]
-    }),title:plan.name,zIndexOffset:500
-   }).bindPopup('<strong>'+plan.name+'</strong>'+
-    '<div>Δημοσιευμένο εμβαδόν: '+plan.area.toLocaleString('el-GR')+' τ.χλμ.</div>'+
-    '<div>Πλήρη τετράγωνα που προβάλλονται: '+plan.cellCount+'</div>'+
-    '<div>Μερικά τετράγωνα που δεν προβάλλονται: '+plan.partialCount+'</div>'+
-    '<p><a href="'+plan.source+'" target="_blank" rel="noopener noreferrer">Επίσημος πίνακας ΦΕΚ ↗</a></p>')
-  ));
+  const names=L.layerGroup(data.features.map(f=>{
+   const p=f.properties;
+   const width=p.key==='pelop'?119:92;
+   return L.marker(labelPositions[p.key],{
+    icon:L.divIcon({className:'gr-block-pin',html:p.short,
+     iconSize:[width,28],iconAnchor:[width/2,14]}),
+    zIndexOffset:500,title:p.name
+   }).bindPopup('<strong>'+p.name+'</strong><p>Επίσημες συντεταγμένες WGS84 από ΕΕ C/2025/3335.</p>'+
+    '<a href="'+p.source+'" target="_blank" rel="noopener noreferrer">Δες την πηγή ↗</a>');
+  }));
   function toggle(country){
    const visible=country==='all'||country==='gr';
    if(visible&&!map.hasLayer(blocks)){
-    blocks.addTo(map);
-    map.attributionControl.addAttribution(attribution);
-   }else if(!visible&&map.hasLayer(blocks)){
-    map.removeLayer(blocks);
-    map.attributionControl.removeAttribution(attribution);
+    blocks.addTo(map);map.attributionControl.addAttribution(attribution);
+   } else if(!visible&&map.hasLayer(blocks)){
+    map.removeLayer(blocks);map.attributionControl.removeAttribution(attribution);
    }
-   const showLabels=visible&&(country==='gr'||map.getZoom()>=5);
-   if(showLabels&&!map.hasLayer(names))names.addTo(map);
-   else if(!showLabels&&map.hasLayer(names))map.removeLayer(names);
+   const labelsVisible=visible&&(country==='gr'||map.getZoom()>=5);
+   if(labelsVisible&&!map.hasLayer(names))names.addTo(map);
+   else if(!labelsVisible&&map.hasLayer(names))map.removeLayer(names);
   }
   map.on('zoomend',()=>toggle(getCountry()));
   toggle(getCountry());
   return {
    toggle,
-   status:'Εμφανίζονται 4 ελληνικές περιοχές: '+data.complete.features.length+
-    ' επίσημα πλήρη τετράγωνα 5′ × 5′ από το ΦΕΚ Β΄ 2104/2025. '+
-    data.partial.features.length+' μερικά οριακά τετράγωνα δεν γεμίζουν. '+
-    'Τα υπόλοιπα ελληνικά οικόπεδα εμφανίζονται προς το παρόν στον επίσημο χάρτη της ΕΔΕΥΕΠ.'
+   status:'Εμφανίζονται 4 ελληνικές περιοχές ως ενιαία μωβ πολύγωνα, από τις ακριβείς δημοσιευμένες κορυφές WGS84 της ΕΕ C/2025/3335. Για τις παλαιότερες ελληνικές παραχωρήσεις δες την ΕΔΕΥΕΠ.'
   };
  };
 })();
