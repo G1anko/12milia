@@ -1,5 +1,6 @@
 /* Official WGS84 concession boundaries: Official Journal of the European Union
    C/2025/3335 (12 June 2025), pages 1-2, table "WGS 1984".
+   The Southwest Crete block is from the EU Official Journal 2017/C 411/04.
    Coordinates are [longitude deg,min,sec, latitude deg,min,sec].
    These are PUBLISHED POLYGON VERTICES, not schematic approximations.
    https://eur-lex.europa.eu/eli/C/2025/3335/oj/eng
@@ -52,6 +53,20 @@
     [26,14,58.09,33,27,55.21],[26,0,0,33,24,56.14],
     [26,0,0,33,18,1.04],[24,44,57.96,33,27,41.14]
    ]
+  },
+  {
+   key:'swcrete',name:'Νοτιοδυτικά Κρήτης',short:'ΝΔ Κρήτη',
+   area:19868.37,owner:'ExxonMobil (70%) · HELLENiQ ENERGY (30%)',
+   source:'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52017XG1202(01)',
+   sourceYear:2017,
+   vertices:[
+    [22,15,0,35,30,0],[22,55,0,35,30,0],
+    [22,55,0,35,20,0],[23,20,0,35,20,0],
+    [23,20,0,35,5,0],[23,35,0,35,5,0],
+    [23,35,0,34,40,0],[23,55,0,34,40,0],
+    [23,55,0,34,10,0],[23,35,0,34,10,0],
+    [23,35,0,33,40,0],[22,15,0,34,20,0]
+   ]
   }
  ];
  const features=blocks.map(block=>{
@@ -60,7 +75,7 @@
   if(new Set(ring.map(x=>x.join(','))).size<4)throw Error('Άκυρα σημεία: '+block.name);
   return {type:'Feature',properties:{
     key:block.key,name:block.name,short:block.short,area:block.area,operator:block.owner,
-    source,sourceYear:2025,precision:'Επίσημες κορυφές WGS84, ΕΕ C/2025/3335'
+    source:block.source||source,sourceYear:block.sourceYear||2025,precision:'Δημοσιευμένες κορυφές WGS84 στην Επίσημη Εφημερίδα της ΕΕ'
    },geometry:{type:'Polygon',coordinates:[ring]}};
  });
  window.GreekOffshoreOfficial={
