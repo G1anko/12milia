@@ -19,10 +19,18 @@
     layer.bindPopup(popup);
    }
   });
+  const shortNames={a2:'Α2',pelop:'Ν. Πελοπόννησος',crete1:'Ν. Κρήτη 1',crete2:'Ν. Κρήτη 2'};
+  // Μετατόπιση μόνο των ΕΤΙΚΕΤΩΝ, μέσα στην περιοχή, για αναγνωσιμότητα σε κινητό.
+  const labelPosition=plan=>{
+   if(plan.key==='crete1')return [plan.center[0]+.15,plan.center[1]-.06];
+   if(plan.key==='crete2')return [plan.center[0]-.16,plan.center[1]+.06];
+   return plan.center;
+  };
   const names=L.layerGroup(data.plans.map(plan=>
-   L.marker(plan.center,{
+   L.marker(labelPosition(plan),{
     icon:L.divIcon({
-     className:'gr-block-pin',html:plan.name,iconSize:[132,34],iconAnchor:[66,17]
+     className:'gr-block-pin',html:shortNames[plan.key]||plan.name,
+     iconSize:[plan.key==='pelop'?114:82,28],iconAnchor:[plan.key==='pelop'?57:41,14]
     }),title:plan.name,zIndexOffset:500
    }).bindPopup('<strong>'+plan.name+'</strong>'+
     '<div>Δημοσιευμένο εμβαδόν: '+plan.area.toLocaleString('el-GR')+' τ.χλμ.</div>'+
