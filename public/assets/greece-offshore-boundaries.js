@@ -79,7 +79,7 @@
    },geometry:{type:'Polygon',coordinates:[ring]}};
  });
  window.GreekOffshoreOfficial={
-  date:'2025-06-12',source,
+  sources:{2025:source,2017:'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:52017XG1202(01)'},source,
   type:'FeatureCollection',features
  };
 })();
