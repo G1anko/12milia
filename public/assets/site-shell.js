@@ -5,7 +5,6 @@
   const root = '/';
   const asset = root + 'assets/';
   const links = [
-    ['12 ν.μ.', root + '#overview'],
     ['Βασικές έννοιες', root + 'basikes-ennoies/'],
     ['Ίμια & Καστελλόριζο', root + 'nisia-kai-aoz/'],
     ['Θαλάσσια οικόπεδα', root + 'thalassia-oikopeda/'],
