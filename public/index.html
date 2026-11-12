@@ -175,6 +175,59 @@ main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65r
 #articles-videos{padding-top:16px;padding-bottom:12px}
 #sources{padding-top:12px}
 #articles-videos .sources-details{margin-bottom:0}
+
+/* v49: Ημιδιαφανή χειριστήρια Leaflet και πλήρης οθόνη. */
+#maritime-map .leaflet-control-zoom a,
+#maritime-map .map-fullscreen-button {
+  background:rgba(255,255,255,.79)!important;
+  color:#163b56!important;
+  -webkit-backdrop-filter:blur(5px);
+  backdrop-filter:blur(5px);
+}
+#maritime-map .leaflet-control-zoom a:hover,
+#maritime-map .leaflet-control-zoom a:focus-visible,
+#maritime-map .map-fullscreen-button:hover,
+#maritime-map .map-fullscreen-button:focus-visible {
+  background:rgba(255,255,255,.97)!important;
+}
+#maritime-map .leaflet-control-zoom a.leaflet-disabled {
+  background:rgba(255,255,255,.56)!important;
+}
+#maritime-map .map-fullscreen-control {
+  border:2px solid rgba(0,0,0,.20);
+  border-radius:5px;
+  box-shadow:0 1px 5px rgba(0,0,0,.30);
+  overflow:hidden;
+}
+#maritime-map .map-fullscreen-button {
+  display:flex;align-items:center;justify-content:center;
+  width:34px;height:34px;padding:0;border:0;
+  border-radius:2px;cursor:pointer;
+}
+#maritime-map .map-fullscreen-button svg {
+  width:20px;height:20px;fill:none;
+  stroke:currentColor;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+}
+#maritime-map .map-fullscreen-button:focus-visible {
+  outline:3px solid #e8b569;
+  outline-offset:-3px;
+}
+#maritime-map:fullscreen,
+#maritime-map.map-fullscreen-fallback {
+  width:100vw!important;
+  height:100vh!important;
+  height:100dvh!important;
+  min-height:100vh!important;
+  min-height:100dvh!important;
+  border-radius:0!important;
+}
+#maritime-map.map-fullscreen-fallback {
+  position:fixed!important;inset:0!important;
+  z-index:10000!important;
+}
+body.map-fullscreen-scroll-lock {overflow:hidden!important}
+
 </style>
 <link href="assets/favicon.svg" rel="icon" type="image/svg+xml"/><style>
 /* Δίστηλο υποσέλιδο και σημαία */
@@ -442,6 +495,65 @@ main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65r
  const legendEgypt=document.getElementById('legend-egypt-eez');
  const legendTreaty=document.getElementById('legend-treaty-line');
  const map=L.map('maritime-map',{preferCanvas:true});
+
+ // Πλήρης οθόνη: προτιμάται το Fullscreen API, με εναλλακτική λύση για κινητά.
+ const mapNode=map.getContainer();
+ let fullscreenButton;
+ const fullscreenControl=L.control({position:'topleft'});
+ function mapIsFullscreen(){
+   return document.fullscreenElement===mapNode || mapNode.classList.contains('map-fullscreen-fallback');
+ }
+ function updateMapFullscreen(){
+   if(fullscreenButton){
+     const active=mapIsFullscreen();
+     fullscreenButton.setAttribute('aria-label',active?'Έξοδος από πλήρη οθόνη':'Πλήρης οθόνη χάρτη');
+     fullscreenButton.setAttribute('title',active?'Έξοδος από πλήρη οθόνη (Esc)':'Πλήρης οθόνη χάρτη');
+     fullscreenButton.setAttribute('aria-pressed',String(active));
+     fullscreenButton.querySelector('path').setAttribute('d',
+       active?'M4 9h5V4 M20 9h-5V4 M4 15h5v5 M20 15h-5v5'
+             :'M9 4H4v5 M15 4h5v5 M4 15v5h5 M20 15v5h-5');
+   }
+   // Το Leaflet χρειάζεται επαναμέτρηση μετά τη μεταβολή διαστάσεων.
+   requestAnimationFrame(()=>map.invalidateSize({pan:false}));
+   setTimeout(()=>map.invalidateSize({pan:false}),180);
+ }
+ function mapFallbackFullscreen(active){
+   mapNode.classList.toggle('map-fullscreen-fallback',active);
+   document.body.classList.toggle('map-fullscreen-scroll-lock',active);
+   updateMapFullscreen();
+ }
+ fullscreenControl.onAdd=function(){
+   const container=L.DomUtil.create('div','leaflet-bar map-fullscreen-control');
+   fullscreenButton=L.DomUtil.create('button','map-fullscreen-button',container);
+   fullscreenButton.type='button';
+   fullscreenButton.setAttribute('aria-label','Πλήρης οθόνη χάρτη');
+   fullscreenButton.setAttribute('title','Πλήρης οθόνη χάρτη');
+   fullscreenButton.setAttribute('aria-pressed','false');
+   fullscreenButton.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 4H4v5 M15 4h5v5 M4 15v5h5 M20 15v5h-5"/></svg>';
+   L.DomEvent.disableClickPropagation(container);
+   L.DomEvent.disableScrollPropagation(container);
+   L.DomEvent.on(fullscreenButton,'click',async function(event){
+     L.DomEvent.stop(event);
+     if(mapNode.classList.contains('map-fullscreen-fallback')){
+       mapFallbackFullscreen(false);
+     }else if(document.fullscreenElement===mapNode){
+       try {await document.exitFullscreen();} catch(err) {updateMapFullscreen();}
+     }else if(typeof mapNode.requestFullscreen==='function'){
+       try {await mapNode.requestFullscreen();} catch(err) {mapFallbackFullscreen(true);}
+     }else {
+       mapFallbackFullscreen(true);
+     }
+   });
+   return container;
+ };
+ fullscreenControl.addTo(map);
+ document.addEventListener('fullscreenchange',updateMapFullscreen);
+ document.addEventListener('keydown',function(event){
+   if(event.key==='Escape' && mapNode.classList.contains('map-fullscreen-fallback')){
+     mapFallbackFullscreen(false);
+   }
+ });
+
  // Προεπιλεγμένη προβολή που περιλαμβάνει όλο το επιστημονικό μοντέλο ελληνικής ΑΟΖ (VLIZ).
  // Γεωγραφικό πλαίσιο παρουσίασης, όχι επίσημη οριοθέτηση.
  const greekEezOverviewBounds=L.latLngBounds([[31.6,18.0],[42.2,30.8]]);
