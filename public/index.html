@@ -176,42 +176,46 @@ main{position:relative}.section{padding:38px 0}.section h2{font-size:clamp(1.65r
 #sources{padding-top:12px}
 #articles-videos .sources-details{margin-bottom:0}
 
-/* v49: Ημιδιαφανή χειριστήρια Leaflet και πλήρης οθόνη. */
+/* v50: Ενιαία ημιδιαφανής ομάδα + / − / πλήρης οθόνη. */
+#maritime-map .leaflet-control-zoom {
+  border:2px solid rgba(23,75,101,.26)!important;
+  border-radius:5px;
+  box-shadow:0 1px 4px rgba(0,32,55,.20);
+  overflow:hidden;
+}
 #maritime-map .leaflet-control-zoom a,
-#maritime-map .map-fullscreen-button {
-  background:rgba(255,255,255,.79)!important;
-  color:#163b56!important;
-  -webkit-backdrop-filter:blur(5px);
-  backdrop-filter:blur(5px);
+#maritime-map .leaflet-control-zoom .map-fullscreen-button {
+  width:30px;height:30px;
+  box-sizing:border-box;
+  background:rgba(234,247,251,.67)!important;
+  color:#174c65!important;
+  -webkit-backdrop-filter:blur(4px);
+  backdrop-filter:blur(4px);
 }
 #maritime-map .leaflet-control-zoom a:hover,
 #maritime-map .leaflet-control-zoom a:focus-visible,
-#maritime-map .map-fullscreen-button:hover,
-#maritime-map .map-fullscreen-button:focus-visible {
-  background:rgba(255,255,255,.97)!important;
+#maritime-map .leaflet-control-zoom .map-fullscreen-button:hover,
+#maritime-map .leaflet-control-zoom .map-fullscreen-button:focus-visible {
+  background:rgba(255,255,255,.94)!important;
 }
 #maritime-map .leaflet-control-zoom a.leaflet-disabled {
-  background:rgba(255,255,255,.56)!important;
+  background:rgba(234,247,251,.50)!important;
+  color:#7896a4!important;
 }
-#maritime-map .map-fullscreen-control {
-  border:2px solid rgba(0,0,0,.20);
-  border-radius:5px;
-  box-shadow:0 1px 5px rgba(0,0,0,.30);
-  overflow:hidden;
+#maritime-map .leaflet-control-zoom a.leaflet-control-zoom-out {
+  border-bottom:1px solid rgba(30,76,98,.20)!important;
 }
-#maritime-map .map-fullscreen-button {
+#maritime-map .leaflet-control-zoom .map-fullscreen-button {
   display:flex;align-items:center;justify-content:center;
-  width:34px;height:34px;padding:0;border:0;
-  border-radius:2px;cursor:pointer;
+  padding:0;border:0;border-radius:0;cursor:pointer;
 }
-#maritime-map .map-fullscreen-button svg {
-  width:20px;height:20px;fill:none;
+#maritime-map .leaflet-control-zoom .map-fullscreen-button svg {
+  display:block;width:18px;height:18px;fill:none;
   stroke:currentColor;stroke-width:2;
   stroke-linecap:round;stroke-linejoin:round;
 }
-#maritime-map .map-fullscreen-button:focus-visible {
-  outline:3px solid #e8b569;
-  outline-offset:-3px;
+#maritime-map .leaflet-control-zoom .map-fullscreen-button:focus-visible {
+  outline:2px solid #d0a14a;outline-offset:-3px;
 }
 #maritime-map:fullscreen,
 #maritime-map.map-fullscreen-fallback {
@@ -499,7 +503,7 @@ body.map-fullscreen-scroll-lock {overflow:hidden!important}
  // Πλήρης οθόνη: προτιμάται το Fullscreen API, με εναλλακτική λύση για κινητά.
  const mapNode=map.getContainer();
  let fullscreenButton;
- const fullscreenControl=L.control({position:'topleft'});
+ // Τρίτο κουμπί στο ενιαίο Leaflet zoom control, χωρίς ξεχωριστό πλαίσιο.
  function mapIsFullscreen(){
    return document.fullscreenElement===mapNode || mapNode.classList.contains('map-fullscreen-fallback');
  }
@@ -522,16 +526,14 @@ body.map-fullscreen-scroll-lock {overflow:hidden!important}
    document.body.classList.toggle('map-fullscreen-scroll-lock',active);
    updateMapFullscreen();
  }
- fullscreenControl.onAdd=function(){
-   const container=L.DomUtil.create('div','leaflet-bar map-fullscreen-control');
-   fullscreenButton=L.DomUtil.create('button','map-fullscreen-button',container);
+ const zoomControlContainer=map.zoomControl.getContainer();
+ fullscreenButton=L.DomUtil.create('button','map-fullscreen-button',zoomControlContainer);
+ {
    fullscreenButton.type='button';
    fullscreenButton.setAttribute('aria-label','Πλήρης οθόνη χάρτη');
    fullscreenButton.setAttribute('title','Πλήρης οθόνη χάρτη');
    fullscreenButton.setAttribute('aria-pressed','false');
    fullscreenButton.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 4H4v5 M15 4h5v5 M4 15v5h5 M20 15v5h-5"/></svg>';
-   L.DomEvent.disableClickPropagation(container);
-   L.DomEvent.disableScrollPropagation(container);
    L.DomEvent.on(fullscreenButton,'click',async function(event){
      L.DomEvent.stop(event);
      if(mapNode.classList.contains('map-fullscreen-fallback')){
@@ -544,9 +546,7 @@ body.map-fullscreen-scroll-lock {overflow:hidden!important}
        mapFallbackFullscreen(true);
      }
    });
-   return container;
- };
- fullscreenControl.addTo(map);
+ }
  document.addEventListener('fullscreenchange',updateMapFullscreen);
  document.addEventListener('keydown',function(event){
    if(event.key==='Escape' && mapNode.classList.contains('map-fullscreen-fallback')){
